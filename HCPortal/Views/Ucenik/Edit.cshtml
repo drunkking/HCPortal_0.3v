@@ -1,0 +1,204 @@
+﻿@using HCPortal.Controllers
+@model HCPortal.Models.UcenikLOC
+
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_LayoutModerator.cshtml";
+}
+
+<div id="page-content-wrapper">
+    <div class="container-fluid">
+
+        <h1 class="text-center">Izmeni učenika</h1>
+        <br>
+
+
+        <div class="row justify-content-center">
+            <div class="col-lg-6">
+
+                @{
+                    if (Session["rezultat_izmene"] != null)
+                    {
+                        string poruka = Session["rezultat_izmene"].ToString();
+
+                        if (poruka == "prosao")
+                        {
+                            <div class="alert alert-success text-center" role="alert">
+                                Uspesno izmenjen ucenik
+                            </div>
+                        }
+                        else
+                        {
+                            <div class="alert alert-danger text-center" role="alert">
+                                Nije moguce izmeniti ucenika
+                            </div>
+                        }
+
+                        Session["rezultat_izmene"] = null;
+                    }
+                }
+            </div>
+        </div>
+
+
+
+        <div class="row justify-content-center">
+            <div class="col-lg-7 forma">
+
+                @using (Html.BeginForm("Edit", "Ucenik", FormMethod.Post, new { onsubmit = "return izmeni_ucenika()" }))
+                {
+                    @Html.AntiForgeryToken()
+                    @Html.HiddenFor(model => model.sifra_ucenika)
+
+                    <div class="form-group">
+                        <h4>Ime</h4>
+                        @Html.EditorFor(model => model.ime, new { htmlAttributes = new { @class = "form-control", id = "ime" } })
+                    </div>
+
+                    <div class="form-group">
+                        <h4>Prezime</h4>
+                        @Html.EditorFor(model => model.prezime, new { htmlAttributes = new { @class = "form-control", id = "prezime" } })
+                    </div>
+
+                    <div class="form-group">
+                        <h4>Datum rodjenja</h4>
+                        @Html.EditorFor(model => model.datum_rodjenja, new { htmlAttributes = new { @class = "form-control", id = "datum_rodj" } })
+                    </div>
+
+                    <div class="form-group">
+                        <h4>Mesto stanovanja</h4>
+                        @Html.EditorFor(model => model.mesto_stanovanja, new { htmlAttributes = new { @class = "form-control", id = "mesto_stanovanja" } })
+                    </div>
+
+                    <div class="form-group">
+                        <h4>Jmbg</h4>
+                        @Html.EditorFor(model => model.jmbg, new { htmlAttributes = new { @class = "form-control", id = "jmbg" } })
+                    </div>
+
+
+                    <div class="form-group">
+                        <h4>Ime staratelja</h4>
+                        @Html.EditorFor(model => model.ime_staratelja, new { htmlAttributes = new { @class = "form-control", id = "ime_staratelja" } })
+                    </div>
+
+                    <div class="form-group">
+                        <h4>Prezime staratelja</h4>
+                        @Html.EditorFor(model => model.prezime_staratelja, new { htmlAttributes = new { @class = "form-control", id = "prezime_staratelja" } })
+                    </div>
+
+                    <div class="form-group">
+                        <h4>Kontakt telefon</h4>
+                        @Html.EditorFor(model => model.kontakt_telefon, new { htmlAttributes = new { @class = "form-control", id = "kontakt_telefon" } })
+                    </div>
+
+                    <div class="form-group">
+                        <h4>Korisnicko ime</h4>
+                        @Html.EditorFor(model => model.korisnicko_ime, new { htmlAttributes = new { @class = "form-control", id = "kor_ime" } })
+                    </div>
+
+                    <div class="form-group">
+                        <h4>Odeljenje</h4>
+                        @Html.DropDownListFor(model => model.odeljenje.sifra_odeljenja, new SelectList(ViewBag.odeljenja, "sifra_odeljenja", "naziv"), new { @class = "form-control", id = "odeljenje" })
+                    </div>
+
+                    <input type="submit" class="btn btn-primary float-right" value="Sacuvaj">
+                    <br><br>
+                }
+
+            </div>
+
+
+
+        </div>
+    </div>
+</div>
+
+
+<script>
+
+
+    function validacija(ime, prezime,datum_rodj ,mesto_stanovanja,
+        jmbg, ime_staratelja, prezime_staratelja,
+        kontakt_telefon, korisnicko_ime) {
+
+        var rezultat = true;
+
+
+        if (ime === '' || ime === null) {
+            alert('Unesite ime');
+            rezultat = false;
+        }
+
+        else if (prezime === '' || prezime === null) {
+            alert('Unesite prezime');
+            rezultat = false;
+        }
+
+        else if (datum_rodj === '' || datum_rodj === null) {
+            alert('Unesite datum_rodjenja');
+            rezultat = false;
+        }
+        else if (mesto_stanovanja === '' || mesto_stanovanja === null) {
+            alert('Unesite Mesto stanovanja');
+            rezultat = false;
+        }
+        else if (jmbg === '' || jmbg === null) {
+            alert('Unesite jmbg');
+            rezultat = false;
+        }
+        else if (ime_staratelja === '' || ime_staratelja === null) {
+            alert('Unesite ime staratelja');
+            rezultat = false;
+        }
+        else if (prezime_staratelja === '' || prezime_staratelja === null) {
+            alert('Unesite prezime staratelja');
+            rezultat = false;
+        }
+        else if (kontakt_telefon === '' || kontakt_telefon === null) {
+            alert('Unesite kontakt telefon');
+            rezultat = false;
+        }
+
+        else if (korisnicko_ime === '' || korisnicko_ime === null) {
+            alert('Unesite korisnicko ime');
+            rezultat = false;
+        }
+
+
+        return rezultat;
+
+
+    }
+
+
+
+
+
+    function izmeni_ucenika() {
+
+        var ime = document.getElementById("ime").value;
+        var prezime = document.getElementById("prezime").value;
+        var datum_rodjenja = document.getElementById("datum_rodj").value;
+        var mesto_stanovanja = document.getElementById("mesto_stanovanja").value;
+        var jmbg = document.getElementById("jmbg").value;
+        var ime_staratelja = document.getElementById("ime_staratelja").value;
+        var prezime_staratelja = document.getElementById("prezime_staratelja").value;
+        var kontakt_telefon = document.getElementById("kontakt_telefon").value;
+        var korisnicko_ime = document.getElementById("kor_ime").value;
+
+
+
+        var rez = validacija(ime, prezime,datum_rodjenja ,mesto_stanovanja,
+            jmbg, ime_staratelja, prezime_staratelja,
+            kontakt_telefon, korisnicko_ime);
+
+        if (rez == true) {
+
+            return true;
+        }
+        return false;
+    }
+
+
+</script>

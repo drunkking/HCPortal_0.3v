@@ -1,0 +1,58 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutModerator.cshtml";
+}
+
+
+<div id="page-content-wrapper">
+    <div id="greska"></div>
+    <div class="container-fluid">
+        <h1 class="text-center pt-5">Pregled razreda</h1>
+
+        <div class="row justify-content-center pt-3">
+
+            <div class="col-lg-3 col-md-6 ">
+                <div class="card text-white bg-success mb-3">
+                    <div class="card-header text-center"><h4>Prvi</h4></div>
+                    <div class="card-body">
+                        @Html.ActionLink("Pregled odeljenja", "PregledOdeljenja", "Dnevnik", new {razred = 1 }, new {@class= "btn btn-secondary" })
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="col-lg-3 col-md-6 ">
+                <div class="card text-white bg-info mb-3">
+                    <div class="card-header text-center"><h4>Drugi</h4></div>
+                    <div class="card-body">
+                        @Html.ActionLink("Pregled odeljenja", "PregledOdeljenja", "Dnevnik", new { razred = 2 }, new { @class = "btn btn-secondary" })
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="col-lg-3 col-md-6 ">
+                <div class="card text-white bg-warning mb-3">
+                    <div class="card-header text-center"><h4>Treći</h4></div>
+                    <div class="card-body">
+                        @Html.ActionLink("Pregled odeljenja", "PregledOdeljenja", "Dnevnik", new { razred = 3 }, new { @class = "btn btn-secondary" })
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="col-lg-3 col-md-6 ">
+                <div class="card text-white bg-danger mb-3">
+                    <div class="card-header text-center"><h4>Četvrti</h4></div>
+                    <div class="card-body">
+                        @Html.ActionLink("Pregled odeljenja", "PregledOdeljenja", "Dnevnik", new { razred = 4 }, new { @class = "btn btn-secondary" })
+                    </div>
+                </div>
+            </div>
+
+
+
+        </div>
+    </div>
+</div>

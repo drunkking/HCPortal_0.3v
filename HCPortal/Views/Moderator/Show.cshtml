@@ -1,0 +1,38 @@
+﻿@model IEnumerable<HCPortal.Models.ModeratorLOC>
+
+@{
+    ViewBag.Title = "Show";
+    Layout = "~/Views/Shared/_LayoutModerator.cshtml";
+}
+
+
+<div class="col-lg-6">
+    <h1 class="text-center">Pregled moderatora</h1>
+    <table class="table table-striped text-center">
+        <thead>
+            <tr>
+            <th>Id</th>
+            <th>Ime</th>
+            <th>Prezime</th>
+            <th>Korisnicko ime</th>
+            <th>Datum rodjenja</th>
+            <th>Opcije</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach(var moderator in Model)
+            {
+                <tr>
+                    <td>@Html.DisplayFor(model => moderator.sifra_moderatora)</td>
+                    <td>@Html.DisplayFor(model => moderator.ime)</td>
+                    <td>@Html.DisplayFor(model => moderator.prezime)</td>
+                    <td>@Html.DisplayFor(model => moderator.korisnicko_ime)</td>
+                    <td>@Html.DisplayFor(model => moderator.datum_rodjenja)</td>
+                    <td>@Html.ActionLink("Izmeni","Edit","Moderator", new { id = moderator.sifra_moderatora }, new { @class = "btn btn-info" })</td>
+                </tr>
+            }
+        </tbody>
+
+    </table>
+</div>
+

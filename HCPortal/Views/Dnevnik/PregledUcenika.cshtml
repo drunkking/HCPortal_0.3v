@@ -1,0 +1,48 @@
+﻿@model IEnumerable<HCPortal.Models.UcenikLOC>
+
+@{
+    ViewBag.Title = "PregledUcenika";
+    Layout = "~/Views/Shared/_LayoutModerator.cshtml";
+}
+
+<div id="page-content-wrapper">
+    <div class="container-fluid">
+        <h1 class="text-center pt-5">Pregled učenika</h1>
+
+        <div class="row justify-content-center">
+
+            <div class="col-lg-8">
+                <table class="table table-hover text-center">
+                    <thead>
+                        <tr>
+                            <th>Sifra</th>
+                            <th>Ime</th>
+                            <th>Prezime</th>
+                            <th>Jmbg</th>
+                            <th>Korisnicko ime</th>
+                            <th>Pregled predmeta</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach(var ucenik in Model)
+                        {
+                            <tr>
+                                <td>@Html.DisplayFor(model => ucenik.sifra_ucenika)</td>
+                                <td>@Html.DisplayFor(model => ucenik.ime)</td>
+                                <td>@Html.DisplayFor(model => ucenik.prezime)</td>
+                                <td>@Html.DisplayFor(model => ucenik.jmbg)</td>
+                                <td>@Html.DisplayFor(model => ucenik.korisnicko_ime)</td>
+                                <td>@Html.ActionLink("Pregledaj","PregledPredmeta","Dnevnik", new {ucenik_sifra = ucenik.sifra_ucenika }, new {@class ="btn btn-info"})</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+
+            </div>
+
+
+
+        </div>
+    </div>
+
+</div>

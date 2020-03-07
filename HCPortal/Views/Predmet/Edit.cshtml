@@ -1,0 +1,172 @@
+﻿@using HCPortal.Controllers
+@model HCPortal.Models.PredmetLOC
+
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_LayoutModerator.cshtml";
+}
+
+
+<div id="page-content-wrapper">
+    <div class="container-fluid">
+        <h1 class="text-center">Dodaj predmet</h1>
+        <br>
+        <div class="row justify-content-center">
+            <div class="col-lg-6">
+
+                @{
+                    if (Session["rezultat_izmene"] != null)
+                    {
+                        string poruka = Session["rezultat_izmene"].ToString();
+
+                        if (poruka == "prosao")
+                        {
+                            <div class="alert alert-success text-center" role="alert">
+                                Uspesno izmenjen predmet
+                            </div>
+                        }
+                        else
+                        {
+                            <div class="alert alert-danger text-center" role="alert">
+                                Nije moguce izmeniti predmet
+                            </div>
+                        }
+
+                        Session["rezultat_izmene"] = null;
+                    }
+                }
+            </div>
+        </div>
+
+        <div class="row justify-content-center">
+
+            <div class="col-lg-7 forma">
+
+                @using (Html.BeginForm("Edit", "Predmet", FormMethod.Post, new { onsubmit = "return izmeni_predmet()" }))
+                {
+                    @Html.AntiForgeryToken();
+                    @Html.HiddenFor(model => model.sifra_predmeta)
+
+                    <div class="form-group">
+                        <h4>Naziv predmeta</h4>
+                        @Html.EditorFor(model => model.naziv, new { htmlAttributes = new { @class = "form-control", id = "naziv" } })
+                    </div>
+                    <div class="form-group">
+
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" name="razredi" id="prvi" value="1">
+                            <label class="form-check-label" for="inlineRadio1">Prvi</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" name="razredi" id="drugi" value="2">
+                            <label class="form-check-label" for="inlineRadio1">Drugi</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" name="razredi" id="treci" value="3">
+                            <label class="form-check-label" for="inlineRadio1">Treci</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" name="razredi" id="cetvrti" value="4">
+                            <label class="form-check-label" for="inlineRadio1">Cetvrti</label>
+                        </div>
+                    </div>
+
+                    <input type="submit" class="btn btn-primary float-right" value="Sacuvaj">
+                    <br><br>
+                }
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script>
+
+    function razredi() {
+
+        var prvi = document.getElementById("prvi");
+        var drugi = document.getElementById("drugi");
+        var treci = document.getElementById("treci");
+        var cetvrti = document.getElementById("cetvrti");
+
+        var rezultat = [];
+
+        if (prvi.checked) {
+            rezultat.push(prvi.value);
+        }
+        if (drugi.checked) {
+            rezultat.push(drugi.value);
+        }
+        if (treci.checked) {
+            rezultat.push(treci.value);
+        }
+        if (cetvrti.checked) {
+            rezultat.push(cetvrti.value);
+        }
+
+        return rezultat;
+    }
+
+
+    function validacija(naziv_predmeta) {
+
+        var rezultat = true;
+
+        if (naziv_predmeta === '' || naziv_predmeta === null) {
+            alert('morate popuniti polje');
+            rezultat = false;
+        }
+        return rezultat;
+    }
+
+
+    function izmeni_predmet() {
+
+        var naziv_predmeta = document.getElementById("naziv").value;
+        var rez = validacija(naziv_predmeta);
+        var razred = razredi();
+
+        if (rez === true) {
+            if (razred.length == 0) {
+                alert('Morate odabrati bar jedan razred');
+                return false;
+            }
+            else {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    function postavi_razred_predmeta() {
+
+        var razredi = [];
+
+        @for(var i = 0; i < Model.razredi.Count(); i++)
+        {
+            @:razredi.push(@Model.razredi[i].sifra_razreda)
+        }
+
+        for (i = 0; i < razredi.length; i++) {
+        if (razredi[i] == 1) {
+        document.getElementById("prvi").checked = true;
+        }
+        if (razredi[i] == 2) {
+        document.getElementById("drugi").checked = true;
+        }
+        if (razredi[i] == 3) {
+        document.getElementById("treci").checked = true;
+        }
+        if (razredi[i] == 4) {
+        document.getElementById("cetvrti").checked = true;
+        }
+        }
+
+    }
+
+    window.onload = postavi_razred_predmeta();
+
+
+</script>

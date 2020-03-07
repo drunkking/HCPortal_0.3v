@@ -1,0 +1,38 @@
+﻿@model IEnumerable<HCPortal.Models.ProfesorLOC>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutModerator.cshtml";
+}
+
+<div class="col-lg-6">
+    <h1 class="text-center">Pregled profesora</h1>
+    <table class="table table-striped text-center">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Ime</th>
+                <th>Prezime</th>
+                <th>Datum rodjenja</th>
+                <th>Mesto stanovanja</th>
+                <th>JMBG</th>
+                <th>Opcije</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach(var profesor in Model)
+            {
+                <tr>
+                    <td>@Html.DisplayFor(model => profesor.sifra_profesora)</td>
+                    <td>@Html.DisplayFor(model => profesor.ime)</td>
+                    <td>@Html.DisplayFor(model => profesor.prezime)</td>
+                    <td>@Html.DisplayFor(model => profesor.datum_rodjenja)</td>
+                    <td>@Html.DisplayFor(model => profesor.mesto_stanovanja)</td>
+                    <td>@Html.DisplayFor(model => profesor.jmbg)</td>
+                    <td>@Html.ActionLink("Izmeni","Edit","Profesor", new { id= profesor.sifra_profesora}, new { @class="btn btn-info" })</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+

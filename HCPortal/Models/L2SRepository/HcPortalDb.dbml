@@ -1,0 +1,103 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="hcportal" Class="HcPortalDbDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=DESKTOP-B2HNG77;Initial Catalog=hcportal;Integrated Security=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="hcportalConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Moderator" Member="Moderators">
+    <Type Name="Moderator">
+      <Column Name="sifra_moderatora" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ime" Type="System.String" DbType="NVarChar(60)" CanBeNull="true" />
+      <Column Name="prezime" Type="System.String" DbType="NVarChar(60)" CanBeNull="true" />
+      <Column Name="korisnicko_ime" Type="System.String" DbType="NVarChar(60)" CanBeNull="true" />
+      <Column Name="sifra" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="datum_rodjenja" Type="System.String" DbType="NVarChar(60)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Odeljenje" Member="Odeljenjes">
+    <Type Name="Odeljenje">
+      <Column Name="sifra_odeljenja" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="naziv" Type="System.String" DbType="NVarChar(60)" CanBeNull="true" />
+      <Column Name="sifra_razreda" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Odeljenje_ProfesorPredajePredmetOdeljenju" Member="ProfesorPredajePredmetOdeljenjus" ThisKey="sifra_odeljenja" OtherKey="sifra_odeljenja" Type="ProfesorPredajePredmetOdeljenju" />
+      <Association Name="Odeljenje_Ucenik" Member="Uceniks" ThisKey="sifra_odeljenja" OtherKey="sifra_odeljenja" Type="Ucenik" />
+      <Association Name="Razred_Odeljenje" Member="Razred" ThisKey="sifra_razreda" OtherKey="sifra_razreda" Type="Razred" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Predmet" Member="Predmets">
+    <Type Name="Predmet">
+      <Column Name="sifra_predmeta" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="naziv" Type="System.String" DbType="NVarChar(60)" CanBeNull="true" />
+      <Association Name="Predmet_ProfesorPredajePredmetOdeljenju" Member="ProfesorPredajePredmetOdeljenjus" ThisKey="sifra_predmeta" OtherKey="sifra_predmeta" Type="ProfesorPredajePredmetOdeljenju" />
+      <Association Name="Predmet_RazredImaPredmet" Member="RazredImaPredmets" ThisKey="sifra_predmeta" OtherKey="sifra_predmeta" Type="RazredImaPredmet" />
+      <Association Name="Predmet_UcenikImaOcenu" Member="UcenikImaOcenus" ThisKey="sifra_predmeta" OtherKey="sifra_predmeta" Type="UcenikImaOcenu" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Profesor" Member="Profesors">
+    <Type Name="Profesor">
+      <Column Name="sifra_profesora" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ime" Type="System.String" DbType="NVarChar(60)" CanBeNull="true" />
+      <Column Name="prezime" Type="System.String" DbType="NVarChar(60)" CanBeNull="true" />
+      <Column Name="korisnicko_ime" Type="System.String" DbType="NVarChar(60)" CanBeNull="true" />
+      <Column Name="sifra" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="datum_rodjenja" Type="System.String" DbType="NVarChar(60)" CanBeNull="true" />
+      <Column Name="mesto_stanovanja" Type="System.String" DbType="NVarChar(60)" CanBeNull="true" />
+      <Column Name="jmbg" Type="System.String" DbType="NVarChar(60)" CanBeNull="true" />
+      <Association Name="Profesor_ProfesorPredajePredmetOdeljenju" Member="ProfesorPredajePredmetOdeljenjus" ThisKey="sifra_profesora" OtherKey="sifra_profesora" Type="ProfesorPredajePredmetOdeljenju" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ProfesorPredajePredmetOdeljenju" Member="ProfesorPredajePredmetOdeljenjus">
+    <Type Name="ProfesorPredajePredmetOdeljenju">
+      <Column Name="sifra_profesora" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="sifra_predmeta" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="sifra_odeljenja" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Association Name="Profesor_ProfesorPredajePredmetOdeljenju" Member="Profesor" ThisKey="sifra_profesora" OtherKey="sifra_profesora" Type="Profesor" IsForeignKey="true" />
+      <Association Name="Predmet_ProfesorPredajePredmetOdeljenju" Member="Predmet" ThisKey="sifra_predmeta" OtherKey="sifra_predmeta" Type="Predmet" IsForeignKey="true" />
+      <Association Name="Odeljenje_ProfesorPredajePredmetOdeljenju" Member="Odeljenje" ThisKey="sifra_odeljenja" OtherKey="sifra_odeljenja" Type="Odeljenje" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Ucenik" Member="Uceniks">
+    <Type Name="Ucenik">
+      <Column Name="sifra_ucenika" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ime" Type="System.String" DbType="NVarChar(60)" CanBeNull="true" />
+      <Column Name="prezime" Type="System.String" DbType="NVarChar(60)" CanBeNull="true" />
+      <Column Name="korisnicko_ime" Type="System.String" DbType="NVarChar(60)" CanBeNull="true" />
+      <Column Name="sifra" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="datum_rodjenja" Type="System.String" DbType="NVarChar(60)" CanBeNull="true" />
+      <Column Name="mesto_stanovanja" Type="System.String" DbType="NVarChar(60)" CanBeNull="true" />
+      <Column Name="jmbg" Type="System.String" DbType="NVarChar(60)" CanBeNull="true" />
+      <Column Name="ime_staratelja" Type="System.String" DbType="NVarChar(60)" CanBeNull="true" />
+      <Column Name="prezime_staratelja" Type="System.String" DbType="NVarChar(60)" CanBeNull="true" />
+      <Column Name="kontakt_telefon" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="sifra_odeljenja" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Ucenik_UcenikImaOcenu" Member="UcenikImaOcenus" ThisKey="sifra_ucenika" OtherKey="sifra_ucenika" Type="UcenikImaOcenu" />
+      <Association Name="Odeljenje_Ucenik" Member="Odeljenje" ThisKey="sifra_odeljenja" OtherKey="sifra_odeljenja" Type="Odeljenje" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.RazredImaPredmet" Member="RazredImaPredmets">
+    <Type Name="RazredImaPredmet">
+      <Column Name="sifra_dodele" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="sifra_predmeta" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="sifra_razreda" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Predmet_RazredImaPredmet" Member="Predmet" ThisKey="sifra_predmeta" OtherKey="sifra_predmeta" Type="Predmet" IsForeignKey="true" />
+      <Association Name="Razred_RazredImaPredmet" Member="Razred" ThisKey="sifra_razreda" OtherKey="sifra_razreda" Type="Razred" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Razred" Member="Razreds">
+    <Type Name="Razred">
+      <Column Name="sifra_razreda" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="naziv" Type="System.String" DbType="NVarChar(60)" CanBeNull="true" />
+      <Association Name="Razred_Odeljenje" Member="Odeljenjes" ThisKey="sifra_razreda" OtherKey="sifra_razreda" Type="Odeljenje" />
+      <Association Name="Razred_RazredImaPredmet" Member="RazredImaPredmets" ThisKey="sifra_razreda" OtherKey="sifra_razreda" Type="RazredImaPredmet" />
+    </Type>
+  </Table>
+  <Table Name="dbo.UcenikImaOcenu" Member="UcenikImaOcenus">
+    <Type Name="UcenikImaOcenu">
+      <Column Name="sifra_upisa" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="sifra_ucenika" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="sifra_predmeta" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ocena" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="polugodiste" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="opis" Type="System.String" DbType="NVarChar(60)" CanBeNull="true" />
+      <Column Name="vreme_upisa" Type="System.String" DbType="NVarChar(60)" CanBeNull="true" />
+      <Association Name="Ucenik_UcenikImaOcenu" Member="Ucenik" ThisKey="sifra_ucenika" OtherKey="sifra_ucenika" Type="Ucenik" IsForeignKey="true" />
+      <Association Name="Predmet_UcenikImaOcenu" Member="Predmet" ThisKey="sifra_predmeta" OtherKey="sifra_predmeta" Type="Predmet" IsForeignKey="true" />
+    </Type>
+  </Table>
+</Database>

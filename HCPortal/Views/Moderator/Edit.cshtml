@@ -1,0 +1,129 @@
+﻿@using HCPortal.Controllers
+@model HCPortal.Models.ModeratorLOC
+
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_LayoutModerator.cshtml";
+}
+
+<div id="page-content-wrapper">
+    <div class="container-fluid">
+        <h1 class="text-center">Izmeni Moderatora</h1>
+        <br>
+        <div class="row justify-content-center">
+            <div class="col-lg-6">
+
+                @{
+                    if (Session["rezultat_izmene"] != null)
+                    {
+                        string poruka = Session["rezultat_izmene"].ToString();
+
+                        if (poruka == "prosao")
+                        {
+                            <div class="alert alert-success text-center" role="alert">
+                                Uspesno izmenjen moderator
+                            </div>
+                        }
+                        else
+                        {
+                            <div class="alert alert-danger text-center" role="alert">
+                                Nije moguce izmeniti moderatora
+                            </div>
+                        }
+
+                        Session["rezultat_izmene"] = null;
+                    }
+                }
+            </div>
+        </div>
+
+
+        <div class="row justify-content-center">
+            <div class="col-lg-7 forma">
+
+                @using (Html.BeginForm("Edit", "Moderator", FormMethod.Post, new { onsubmit = "return izmeni_moderatora()" }))
+                {
+                    @Html.AntiForgeryToken()
+                    @Html.HiddenFor(model => model.sifra_moderatora)
+
+                    <div class="form-group">
+                        <h4>Ime</h4>
+                        @Html.EditorFor(model => model.ime, new { htmlAttributes = new { @class = "form-control", id = "ime" } })
+                    </div>
+
+                    <div class="form-group">
+                        <h4>Prezime</h4>
+                        @Html.EditorFor(model => model.prezime, new { htmlAttributes = new { @class = "form-control", id = "prezime" } })
+                    </div>
+
+                    <div class="form-group">
+                        <h4>Korisnicko ime</h4>
+                        @Html.EditorFor(model => model.korisnicko_ime, new { htmlAttributes = new { @class = "form-control", id = "kor_ime" } })
+                    </div>
+
+                    <div class="form-group">
+                        <h4>Datum rodjenja</h4>
+                        @Html.EditorFor(model => model.datum_rodjenja, new { htmlAttributes = new { @class = "form-control", id = "datum_rodj" } })
+                    </div>
+
+
+                    <input type="submit" class="btn btn-primary float-right" value="Sacuvaj">
+                    <br><br>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+
+    function validacija(ime, prezime, korisnicko_ime, datum_rodj) {
+
+        var rezultat = true;
+
+        if (ime === '' || ime === null) {
+            alert('Unesite ime');
+            rezultat = false;
+        }
+
+        else if (prezime === '' || prezime === null) {
+            alert('Unesite prezime');
+            rezultat = false;
+        }
+
+        else if (korisnicko_ime === '' || korisnicko_ime === null) {
+            alert('Unesite korisnicko ime');
+            rezultat = false;
+        }
+        else if (datum_rodj === '' || datum_rodj === null) {
+            alert('Unesite datum rodjenja');
+            rezultat = false;
+        }
+
+
+        return rezultat;
+    }
+
+
+
+
+
+    function izmeni_moderatora() {
+
+        var ime = document.getElementById("ime").value;
+        var prezime = document.getElementById("prezime").value;
+        var korisnicko_ime = document.getElementById("kor_ime").value;
+        var datum_rodj = document.getElementById("datum_rodj").value;
+
+        var rez = validacija(ime, prezime, korisnicko_ime, datum_rodj);
+
+        if (rez == true) {
+
+            return true;
+        }
+        return false;
+    }
+
+
+</script>

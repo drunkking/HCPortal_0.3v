@@ -1,0 +1,21 @@
+﻿<!DOCTYPE html>
+<html>
+@Html.Partial("Header")
+<body>
+
+    @Html.Partial("Navbar")
+
+    <div class="d-flex" id="wrapper">
+        @Html.Partial("Sidebar")
+        <div id="page-content-wrapper">
+            <div class="container-fluid">
+                <div class="row justify-content-center ">
+                    @RenderBody()
+                </div>
+            </div>
+        </div>
+    </div>
+        @Html.Partial("Footer")
+    
+</body>
+</html>

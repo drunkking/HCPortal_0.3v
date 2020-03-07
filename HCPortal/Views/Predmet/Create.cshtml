@@ -1,0 +1,151 @@
+﻿@using HCPortal.Controllers
+@model HCPortal.Models.PredmetLOC
+
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutModerator.cshtml";
+}
+
+<div id="page-content-wrapper">
+    <div class="container-fluid">
+        <h1 class="text-center">Dodaj predmet</h1>
+        <br>
+        <div class="row justify-content-center">
+            <div class="col-lg-6">
+
+                @{
+                    if (Session["rezultat_upisa"] != null)
+                    {
+                        string poruka = Session["rezultat_upisa"].ToString();
+
+                        if (poruka == "prosao")
+                        {
+                            <div class="alert alert-success text-center" role="alert">
+                                Uspesno upisan novi predmet
+                            </div>
+                        }
+                        else
+                        {
+                            <div class="alert alert-danger text-center" role="alert">
+                                Nije moguce upisati predmet
+                            </div>
+                        }
+
+                        Session["rezultat_upisa"] = null;
+                    }
+                }
+            </div>
+        </div>
+
+        <div class="row justify-content-center">
+
+            <div class="col-lg-7 forma">
+
+                @using (Html.BeginForm("Create", "Predmet", FormMethod.Post, new { onsubmit = "return dodaj_predmet()" }))
+                {
+                    @Html.AntiForgeryToken();
+
+                    <div class="form-group">
+                        <h4>Naziv predmeta</h4>
+                        @Html.EditorFor(model => model.naziv, new { htmlAttributes = new { @class = "form-control", id = "naziv" } })
+                    </div>
+
+                    <div class="form-group">
+               
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" name="razredi" id="prvi" value="1" checked="checked">
+                                <label class="form-check-label" for="inlineRadio1">Prvi</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" name="razredi" id="drugi" value="2">
+                                <label class="form-check-label" for="inlineRadio1">Drugi</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" name="razredi" id="treci" value="3">
+                                <label class="form-check-label" for="inlineRadio1">Treci</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" name="razredi" id="cetvrti" value="4">
+                                <label class="form-check-label" for="inlineRadio1">Cetvrti</label>
+                            </div>
+                    </div>
+
+                    <input type="submit" class="btn btn-primary float-right" value="Dodaj">
+                    <br><br>
+                }
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script>
+
+    function razredi() {
+
+        var prvi = document.getElementById("prvi");
+        var drugi = document.getElementById("drugi");
+        var treci = document.getElementById("treci");
+        var cetvrti = document.getElementById("cetvrti");
+
+        var rezultat = [];
+
+
+        if (prvi.checked) {
+            rezultat.push(prvi.value);
+        }
+        if (drugi.checked) {
+            rezultat.push(drugi.value);
+        }
+        if (treci.checked) {
+            rezultat.push(treci.value);
+        }
+        if (cetvrti.checked) {
+            rezultat.push(cetvrti.value);
+        }
+
+
+        return rezultat;
+    }
+
+
+    function validacija(naziv_predmeta) {
+
+        var rezultat = true;
+
+        if (naziv_predmeta === '' || naziv_predmeta === null) {
+            alert('morate popuniti polje');
+            rezultat = false;
+        }
+
+
+        return rezultat;
+    }
+
+
+    function dodaj_predmet() {
+
+        var naziv_predmeta = document.getElementById("naziv").value;
+        var rez = validacija(naziv_predmeta);
+        var razred = razredi();
+
+
+        if (rez === true) {
+            if (razred.length == 0) {
+                alert('Morate odabrati bar jedan razred');
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
+
+        return false;
+
+    }
+
+
+</script>

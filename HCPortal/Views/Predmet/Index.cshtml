@@ -1,0 +1,46 @@
+﻿@model IEnumerable<HCPortal.Models.PredmetLOC>
+
+
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutModerator.cshtml";
+}
+
+@{ 
+  
+}
+
+
+<div class="col-lg-6">
+    <h1 class="text-center">Pregled predmeta</h1>
+    <table class="table table-striped text-center">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Naziv</th>
+                <th>Razredi</th>
+                <th>Opcije</th>
+            </tr>
+        </thead>
+        @foreach (var predmet in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(model => predmet.sifra_predmeta)</td>
+                <td>@Html.DisplayFor(model => predmet.naziv)</td>
+                <td>
+                    
+                    @foreach(var rez in predmet.razredi)
+                    {
+                       <div>@rez.naziv</div>  
+                    }
+                    
+                </td>
+                <td>@Html.ActionLink("Izmeni", "Edit", "Predmet", new { id = predmet.sifra_predmeta }, new { @class = "btn btn-info" })</td>
+            </tr>
+        }
+
+        <tbody></tbody>
+    </table>
+</div>
+

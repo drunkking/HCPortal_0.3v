@@ -1,0 +1,108 @@
+﻿@model HCPortal.Models.OdeljenjeLOC
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_LayoutModerator.cshtml";
+}
+
+<div id="page-content-wrapper">
+    <div class="container-fluid">
+        <h1 class="text-center">Dodaj odeljenje</h1>
+        <br>
+        <div class="row justify-content-center">
+            <div class="col-lg-6">
+
+                @{
+                    if (Session["rezultat_upisa"] != null)
+                    {
+                        string poruka = Session["rezultat_upisa"].ToString();
+
+                        if (poruka == "prosao")
+                        {
+                            <div class="alert alert-success text-center" role="alert">
+                                Uspesno upisano novo odeljenje
+                            </div>
+                        }
+                        else
+                        {
+                            <div class="alert alert-danger text-center" role="alert">
+                                Nije moguce upisati odeljenje
+                            </div>
+                        }
+
+                        Session["rezultat_upisa"] = null;
+                    }
+                }
+            </div>
+        </div>
+
+        <div class="row justify-content-center">
+
+            <div class="col-lg-7 forma">
+
+                @using (Html.BeginForm("Create", "Odeljenje", FormMethod.Post, new { onsubmit = "return dodaj_odeljenje()" }))
+                {
+                    @Html.AntiForgeryToken();
+
+                    <div class="form-group">
+                        <h4>Naziv odeljenja</h4>
+                        @Html.EditorFor(model => model.naziv, new { htmlAttributes = new { @class = "form-control", id = "naziv" } })
+                    </div>
+                    <div class="form-group">
+                        <h4>Razred</h4>
+                        <div class="form-check form-check-inline">
+                            @Html.RadioButtonFor(model => model.razred.sifra_razreda, 1, new { @class = "form-check-input", @checked = "checked", id = "prvi" })
+                            <label class="form-check-label" for="inlineRadio1">Prvi</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            @Html.RadioButtonFor(model => model.razred.sifra_razreda, 2, new { @class = "form-check-input", id = "drugi" })
+                            <label class="form-check-label" for="inlineRadio1">Drugi</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            @Html.RadioButtonFor(model => model.razred.sifra_razreda, 3, new { @class = "form-check-input", id = "treci" })
+                            <label class="form-check-label" for="inlineRadio1">Treci</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            @Html.RadioButtonFor(model => model.razred.sifra_razreda, 4, new { @class = "form-check-input", id = "cetvrti" })
+                            <label class="form-check-label" for="inlineRadio1">Cetvrti</label>
+                        </div>
+                    </div>
+
+                    <input type="submit" class="btn btn-primary float-right" onclick="" value="Dodaj">
+                    <br><br>
+                }
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script>
+
+    function validacija(naziv_odeljenja) {
+
+        var rezultat = true;
+
+        if (naziv_odeljenja === '' || naziv_odeljenja === null) {
+            alert('morate popuniti polje');
+            rezultat = false;
+        }
+
+        return rezultat;
+    }
+
+    function dodaj_odeljenje() {
+
+        var naziv_odeljenja = document.getElementById("naziv").value;
+        var rez = validacija(naziv_odeljenja);
+
+        if (rez == true) {
+            return true;
+        }
+
+        return false;
+    }
+
+</script>
