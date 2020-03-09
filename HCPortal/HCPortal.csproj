@@ -280,6 +280,8 @@
     <Content Include="Views\Dnevnik\PregledUcenika.cshtml" />
     <Content Include="Views\Dnevnik\PregledPredmeta.cshtml" />
     <Content Include="Views\Dnevnik\PregledOcena.cshtml" />
+    <Content Include="Views\UcenikGuest\PregledPredmeta.cshtml" />
+    <Content Include="Views\UcenikGuest\PregledOcena.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />

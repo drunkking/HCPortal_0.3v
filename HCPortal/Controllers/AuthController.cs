@@ -16,6 +16,7 @@ namespace HCPortal.Controllers
     {
         private IAuthModerator authModerator = new AuthModeratorRepository();
         private IAuthUcenik authUcenik = new AuthUcenikRepository();
+        private IUcenik ucenikRepository = new UcenikRepository();
 
         public ActionResult Index()
         {
@@ -38,6 +39,7 @@ namespace HCPortal.Controllers
             if (authModerator.proveri_validnost(moderator))
             {
                 Session["ModeratorPrijavljen"] = true;
+
                 return RedirectToAction("Index", "Moderator");
             }
 
@@ -61,6 +63,8 @@ namespace HCPortal.Controllers
             if (authUcenik.proveri_validnost(ucenik))
             {
                 Session["UcenikPrijavljen"] = true;
+                Session["UcenikKorisnickoIme"] = ucenik.korisnicko_ime;
+                Session["UcenikSifraUcenika"] = ucenikRepository.sifraUcenika(ucenik.korisnicko_ime);
                 return RedirectToAction("Index", "UcenikGuest");
             }
 

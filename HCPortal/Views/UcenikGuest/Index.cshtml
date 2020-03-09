@@ -5,4 +5,8 @@
 }
 
 <h2>Index</h2>
+<p>@Session["UcenikKorisnickoIme"].ToString() </p>
+
+
+@Html.ActionLink("Pregledaj", "PregledPredmeta", "UcenikGuest", new { ucenik_sifra = Session["UcenikSifraUcenika"].ToString() }, new { @class = "btn btn-info" })
 

@@ -13,5 +13,6 @@ namespace HCPortal.Models.RepositoryInterfaces
         bool upisiNovogUcenika(UcenikLOC ucenikLoc);
         bool izmeniUcenika(UcenikLOC ucenikLoc);
         bool traziUcenika(string korisnicko_ime);
+        int sifraUcenika(string korisnicko_ime);
     }
 }

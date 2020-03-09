@@ -21,18 +21,22 @@ namespace HCPortal.Models.L2SRepository
         {
             bool validan = false;
 
-            var moderator = SkolaEntities.Uceniks.FirstOrDefault(u => u.korisnicko_ime == ucenikLoc.korisnicko_ime);
+            bool ucenik_postoji = SkolaEntities.Uceniks.Any(u => u.korisnicko_ime == ucenikLoc.korisnicko_ime);
 
-            byte[] data = Encoding.UTF8.GetBytes(ucenikLoc.sifra);
-            byte[] sha512Data = SHA512.Create().ComputeHash(data);
-            string sifraZaProveru = Convert.ToBase64String(sha512Data);
-
-
-            if (sifraZaProveru == moderator.sifra)
+            if(ucenik_postoji)
             {
-                validan = true;
-            }
+                var ucenik = SkolaEntities.Uceniks.FirstOrDefault(u => u.korisnicko_ime == ucenikLoc.korisnicko_ime);
 
+                byte[] data = Encoding.UTF8.GetBytes(ucenikLoc.sifra);
+                byte[] sha512Data = SHA512.Create().ComputeHash(data);
+                string sifraZaProveru = Convert.ToBase64String(sha512Data);
+
+
+                if (sifraZaProveru == ucenik.sifra)
+                {
+                    validan = true;
+                }
+            }
 
             return validan;
         }

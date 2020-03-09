@@ -90,6 +90,13 @@ namespace HCPortal.Models.L2SRepository
             return rezultat_upisa;
         }
 
+        public int sifraUcenika(string korisnicko_ime)
+        {
+            var ucenik = SkolaEntities.Uceniks.FirstOrDefault(u => u.korisnicko_ime == korisnicko_ime);
+
+            return ucenik.sifra_ucenika;
+        }
+
         public List<UcenikLOC> sviUcenici()
         {
             List<UcenikLOC> svi_ucenici = new List<UcenikLOC>();
@@ -157,6 +164,7 @@ namespace HCPortal.Models.L2SRepository
             return ucenik_postoji;
         }
 
+
         public bool upisiNovogUcenika(UcenikLOC ucenikLoc)
         {
             bool rezultat_upisa = true;
@@ -179,7 +187,7 @@ namespace HCPortal.Models.L2SRepository
                     sifra = sifraZaSkladistenje,
                     datum_rodjenja = ucenikLoc.datum_rodjenja,
                     mesto_stanovanja = ucenikLoc.mesto_stanovanja,
-                    jmbg = ucenikLoc.mesto_stanovanja,
+                    jmbg = ucenikLoc.jmbg,
                     ime_staratelja = ucenikLoc.ime_staratelja,
                     prezime_staratelja = ucenikLoc.prezime_staratelja,
                     kontakt_telefon = ucenikLoc.prezime_staratelja

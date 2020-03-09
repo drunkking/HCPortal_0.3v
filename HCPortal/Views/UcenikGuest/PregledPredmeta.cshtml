@@ -3,7 +3,7 @@
 
 @{
     ViewBag.Title = "PregledPredmeta";
-    Layout = "~/Views/Shared/_LayoutModerator.cshtml";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <div id="page-content-wrapper">
@@ -22,12 +22,12 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach(var predmet in Model)
+                        @foreach (var predmet in Model)
                         {
                             <tr>
                                 <td>@Html.DisplayFor(model => predmet.sifra_predmeta)</td>
                                 <td>@Html.DisplayFor(model => predmet.naziv)</td>
-                                <td>@Html.ActionLink("Pregledaj","PregledOcena","Dnevnik", new {ucenik_sifra = ViewBag.sifra_ucenika, predmet_sifra = predmet.sifra_predmeta }, new {@class="btn btn-primary"})</td>
+                                <td>@Html.ActionLink("Pregledaj", "PregledOcena", "UcenikGuest", new { ucenik_sifra = ViewBag.sifra_ucenika, predmet_sifra = predmet.sifra_predmeta }, new { @class = "btn btn-primary" })</td>
                             </tr>
                         }
                     </tbody>
