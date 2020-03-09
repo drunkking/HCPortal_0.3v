@@ -36,10 +36,12 @@ namespace HCPortal.Controllers
         [HttpPost]
         public ActionResult LoginModerator(ModeratorLOC moderator)
         {
+           
             if (authModerator.proveri_validnost(moderator))
             {
+                Session.Clear();
                 Session["ModeratorPrijavljen"] = true;
-
+                Session["ModeratorKorisnickoIme"] = moderator.korisnicko_ime;
                 return RedirectToAction("Index", "Moderator");
             }
 
@@ -60,8 +62,10 @@ namespace HCPortal.Controllers
         [HttpPost]
         public ActionResult LoginUcenik(UcenikLOC ucenik)
         {
+           
             if (authUcenik.proveri_validnost(ucenik))
             {
+                Session.Clear();
                 Session["UcenikPrijavljen"] = true;
                 Session["UcenikKorisnickoIme"] = ucenik.korisnicko_ime;
                 Session["UcenikSifraUcenika"] = ucenikRepository.sifraUcenika(ucenik.korisnicko_ime);
@@ -73,7 +77,7 @@ namespace HCPortal.Controllers
 
         public ActionResult Logout()
         {
-            Session.Abandon();
+            Session.Clear();
             return RedirectToAction("Index", "Auth");
         }
     }

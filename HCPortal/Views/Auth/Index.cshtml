@@ -3,11 +3,13 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2 class="text-center">HCProtal</h2>
 
-
-
-@Html.ActionLink("Moderator","LoginModerator",null, new {@class="btn btn-success" })
-
-@Html.ActionLink("Ucenik","LoginUcenik", null,new { @class = "btn btn-danger" })
+<div class="row justify-content-center">
+    <div class="col-lg-4">
+        @Html.ActionLink("Moderator","LoginModerator",null, new {@class="btn btn-primary btn-lg btn-block" })
+        <br />
+        @Html.ActionLink("Ucenik","LoginUcenik", null,new { @class = "btn btn-danger btn-lg btn-block" })
+    </div>
+</div>
 

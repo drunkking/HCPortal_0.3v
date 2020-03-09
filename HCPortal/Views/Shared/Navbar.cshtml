@@ -7,46 +7,24 @@
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav ml-auto">
 
-            <!--
-                <?php
-                if(isset($_SESSION['moderator'])){
-                echo '<a class="nav-item nav-link" href="../layouts/moderator.php">Glavna <i class="fas fa-tachometer-alt"></i></a>';
 
+            @{
+                if (Session["UcenikPrijavljen"] != null)
+                {
+                    <a class='nav-item nav-link' href='#'>@Session["UcenikKorisnickoIme"] <i class='fas fa-user-circle'></i></a>
                 }
 
-                if(isset($_SESSION['profesor'])){
-                echo '<a class="nav-item nav-link" href="../layouts/profesor.php">Glavna <i class="fas fa-tachometer-alt"></i></a>';
-
+                if (Session["ModeratorPrijavljen"] != null)
+                {
+                   
+                    <a class='nav-item nav-link' href='#'>@Session["ModeratorKorisnickoIme"] <i class='fas fa-user-circle'></i></a>
                 }
+            }
 
-                if(isset($_SESSION['ucenik'])){
-                echo '<a class="nav-item nav-link" href="../layouts/ucenik.php">Glavna <i class="fas fa-tachometer-alt"></i></a>';
 
-                }
 
-                ?>
-
-                <a class="nav-item nav-link" href="../../../index.php">Pocetna <i class="fas fa-home"></i></a>
-                <?php
-                if(isset($_SESSION['moderator'])){
-                echo "<a class='nav-item nav-link' href='#'>{$_SESSION['moderator']} <i class='fas fa-user-circle'></i></a>";
-
-                }
-
-                if(isset($_SESSION['profesor'])){
-                echo "<a class='nav-item nav-link' href='#'>{$_SESSION['profesor']} <i class='fas fa-user-circle'></i></a>";
-
-                }
-
-                if(isset($_SESSION['ucenik'])){
-                echo "<a class='nav-item nav-link' href='#'>{$_SESSION['ucenik']} <i class='fas fa-user-circle'></i></a>";
-
-                }
-
-                ?>
-        -->
             <a class="nav-item nav-link" href="@Url.Action("Logout","Auth")">Odjavi se <i class="fas fa-sign-out-alt"></i></a>
-         
+
         </div>
     </div>
 </nav>
