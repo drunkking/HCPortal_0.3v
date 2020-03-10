@@ -91,29 +91,36 @@
         var rezultat = true;
 
 
-        if (ime === '' || ime === null) {
-            alert('Unesite ime');
-            rezultat = false;
-        }
+        var test_ime_prezime = /^([a-zA-Z]{3,40})$/;
+        var rez_ime = ime.match(test_ime_prezime);
+        var rez_prezime = prezime.match(test_ime_prezime);
 
-        else if (prezime === '' || prezime === null) {
-            alert('Unesite prezime');
+        var test_datum_rodj = /^([1-2][0-9]|[3][0-1]|[1-9]|[0][1-9])\/([0][1-9]|[1][0-2]|[1-9])\/([0-9]{4})$/;
+        var rez_datum_rodj = datum_rodjenja.match(test_datum_rodj);
+
+        var rez_mesto_stanovanja = mesto_stanovanja.match(test_ime_prezime);
+
+        var test_jmbg = /^\d{13}$/;
+        var rez_jmbg = jmbg.match(test_jmbg);
+
+        if (rez_ime === null) {
+            alert("Ime mora da sadrzi 3-40 karaktera");
             rezultat = false;
         }
-        else if (datum_rodjenja === '' || datum_rodjenja === null) {
-            alert('Unesite datum rodjenja');
+        else if (rez_prezime === null) {
+            alert("Prezime mora da sadrzi 3-40 karaktera");
             rezultat = false;
         }
-        else if (mesto_stanovanja === '' || mesto_stanovanja === null) {
-            alert('Unesite Mesto stanovanja');
+        else if (rez_datum_rodj === null) {
+            alert("Datum rodjenja mora biti u formatu dd/mm/yyyy");
             rezultat = false;
         }
-        else if (jmbg === '' || jmbg === null) {
-            alert('Unesite jmbg');
+        else if (rez_mesto_stanovanja === null) {
+            alert("Mesto stanovanja mora da sadrzi 3-40 karaktera");
             rezultat = false;
         }
-        else if (korisnicko_ime === '' || korisnicko_ime === null) {
-            alert('Unesite korisnicko ime');
+        else if (rez_jmbg === null) {
+            alert("JMBG mora da sadrzi 13 cifara");
             rezultat = false;
         }
 

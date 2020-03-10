@@ -82,25 +82,36 @@
 
         var rezultat = true;
 
-        if (ime === '' || ime === null) {
-            alert('Unesite ime');
+        var test_ime_prezime = /^([a-zA-Z]{3,40})$/;
+        var rez_ime = ime.match(test_ime_prezime);
+        var rez_prezime = prezime.match(test_ime_prezime);
+
+
+        var test_korisnicko_ime = /^([a-zA-Z]{3,30})(\d{2,4})$/;
+        var rez_korisnicko_ime = korisnicko_ime.match(test_korisnicko_ime);
+
+        var test_datum_rodj = /^([1-2][0-9]|[3][0-1]|[1-9]|[0][1-9])\/([0][1-9]|[1][0-2]|[1-9])\/([0-9]{4})$/;
+        var rez_datum_rodj = datum_rodj.match(test_datum_rodj);
+
+
+        if (rez_ime === null) {
+            alert("Ime mora da sadrzi 3-40 karaktera");
             rezultat = false;
         }
 
-        else if (prezime === '' || prezime === null) {
-            alert('Unesite prezime');
+        else if (rez_prezime === null) {
+            alert("Prezime mora da sadrzi 3-40 karaktera");
             rezultat = false;
         }
 
-        else if (korisnicko_ime === '' || korisnicko_ime === null) {
-            alert('Unesite korisnicko ime');
+        else if (rez_korisnicko_ime === null) {
+            alert("Korisnicko ime mora da sadrzi 3-30 karaktera i da se zavrsava sa 2-4 cifre");
             rezultat = false;
         }
-        else if (datum_rodj === '' || datum_rodj === null) {
-            alert('Unesite datum rodjenja');
+        else if (rez_datum_rodj === null) {
+            alert("Datum rodjenja mora biti u formatu dd/mm/yyyy");
             rezultat = false;
         }
-
 
         return rezultat;
     }

@@ -85,8 +85,11 @@
 
         var rezultat = true;
 
-        if (naziv_odeljenja === '' || naziv_odeljenja === null) {
-            alert('morate popuniti polje');
+        var test_naziv_odeljenja = /^([a-zA-Z]{1,4})\-([a-zA-Z0-9]{1,10})$/;
+        var rez_naziv_odeljenja = naziv_odeljenja.match(test_naziv_odeljenja);
+
+        if (rez_naziv_odeljenja === null) {
+            alert("Naziv odeljenja mora biti u formatu odeljenje/-/razred");
             rezultat = false;
         }
 

@@ -114,10 +114,14 @@
 
         var rezultat = true;
 
-        if (naziv_predmeta === '' || naziv_predmeta === null) {
-            alert('morate popuniti polje');
+        var test_naziv_predmeta = /^([a-zA-Z]{3,40})$/;
+        var rez_naziv_predmeta = naziv_predmeta.match(test_naziv_predmeta);
+
+        if (rez_naziv_predmeta === null) {
+            alert("Naziv predmeta mora da sadrzi 3-40 karaktera");
             rezultat = false;
         }
+
         return rezultat;
     }
 
