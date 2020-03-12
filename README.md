@@ -2,7 +2,7 @@
 
 ### Moderator 
 Korisnicko ime: dusan123
-Sifra: dusan
+Sifra: dusan123
 
 ### Ucenik
 Korisnicko ime: test123
