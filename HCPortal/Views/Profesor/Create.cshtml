@@ -94,7 +94,7 @@
         var rezultat = true;
 
 
-        var test_ime_prezime = /^([a-zA-Z]{3,40})$/;
+        var test_ime_prezime = /^([a-zA-Z0-9 ]{3,70})$/;
         var rez_ime = ime.match(test_ime_prezime);
         var rez_prezime = prezime.match(test_ime_prezime);
 
@@ -107,11 +107,11 @@
         var rez_jmbg = jmbg.match(test_jmbg);
 
         if (rez_ime === null) {
-            alert("Ime mora da sadrzi 3-40 karaktera");
+            alert("Ime mora da sadrzi 3-70 karaktera");
             rezultat = false;
         }
         else if (rez_prezime === null) {
-            alert("Prezime mora da sadrzi 3-40 karaktera");
+            alert("Prezime mora da sadrzi 3-70 karaktera");
             rezultat = false;
         }
         else if (rez_datum_rodj === null) {
@@ -119,7 +119,7 @@
             rezultat = false;
         }
         else if (rez_mesto_stanovanja === null) {
-            alert("Mesto stanovanja mora da sadrzi 3-40 karaktera");
+            alert("Mesto stanovanja mora da sadrzi 3-70 karaktera");
             rezultat = false;
         }
         else if (rez_jmbg === null) {

@@ -14,6 +14,7 @@ namespace HCPortal.Controllers
     {
         private IDnevnik dnevnikRepository = new DnevnikRepository();
         private IUcenik ucenikRepositroy = new UcenikRepository();
+        private IPredmet predmetRepository = new PredmetRepository();
 
         // GET: Dnevnik
         public ActionResult Index()
@@ -59,6 +60,7 @@ namespace HCPortal.Controllers
             if (svi_predmeti != null)
             {
                 ViewBag.sifra_ucenika = ucenik_sifra;
+                ViewBag.ucenik = ucenikRepositroy.traziUcenika(ucenik_sifra);
                 return View("PregledPredmeta", svi_predmeti);
             }
             else
@@ -75,6 +77,7 @@ namespace HCPortal.Controllers
             {
                 ViewBag.ucenik = ucenikRepositroy.traziUcenika(ucenik_sifra);
                 ViewBag.sifra_predmeta = predmet_sifra;
+                ViewBag.predmet = predmetRepository.traziPredmet(predmet_sifra);
                 return View("PregledOcena", sve_ocene_ucenika);
             }
             else

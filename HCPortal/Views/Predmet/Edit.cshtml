@@ -114,7 +114,7 @@
 
         var rezultat = true;
 
-        var test_naziv_predmeta = /^([a-zA-Z]{3,40})$/;
+        var test_naziv_predmeta = /^([a-zA-Z ]{3,40})$/;
         var rez_naziv_predmeta = naziv_predmeta.match(test_naziv_predmeta);
 
         if (rez_naziv_predmeta === null) {

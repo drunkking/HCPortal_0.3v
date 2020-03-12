@@ -92,6 +92,10 @@ namespace HCPortal.Models.L2SRepository
                 ucenikLoc.prezime = u.prezime;
                 ucenikLoc.jmbg = u.jmbg;
                 ucenikLoc.korisnicko_ime = u.korisnicko_ime;
+
+                Odeljenje odelj = SkolaEntities.Odeljenjes.FirstOrDefault(o => o.sifra_odeljenja == odeljenje);
+                ucenikLoc.odeljenje = new OdeljenjeLOC { naziv = odelj.naziv, sifra_odeljenja = odelj.sifra_odeljenja };
+
                 svi_ucenici.Add(ucenikLoc);
             }
             return svi_ucenici;

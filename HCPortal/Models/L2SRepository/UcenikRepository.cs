@@ -190,7 +190,7 @@ namespace HCPortal.Models.L2SRepository
                     jmbg = ucenikLoc.jmbg,
                     ime_staratelja = ucenikLoc.ime_staratelja,
                     prezime_staratelja = ucenikLoc.prezime_staratelja,
-                    kontakt_telefon = ucenikLoc.prezime_staratelja
+                    kontakt_telefon = ucenikLoc.kontakt_telefon
                 };
 
                 SkolaEntities.Uceniks.InsertOnSubmit(ucenik);

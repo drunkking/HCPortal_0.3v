@@ -20,6 +20,7 @@
                             <th>Prezime</th>
                             <th>Jmbg</th>
                             <th>Korisnicko ime</th>
+                            <th>Odeljenje</th>
                             <th>Pregled predmeta</th>
                         </tr>
                     </thead>
@@ -32,6 +33,7 @@
                                 <td>@Html.DisplayFor(model => ucenik.prezime)</td>
                                 <td>@Html.DisplayFor(model => ucenik.jmbg)</td>
                                 <td>@Html.DisplayFor(model => ucenik.korisnicko_ime)</td>
+                                <td>@Html.DisplayFor(model => ucenik.odeljenje.naziv)</td>
                                 <td>@Html.ActionLink("Pregledaj","PregledPredmeta","Dnevnik", new {ucenik_sifra = ucenik.sifra_ucenika }, new {@class ="btn btn-info"})</td>
                             </tr>
                         }
