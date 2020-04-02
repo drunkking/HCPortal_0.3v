@@ -20,10 +20,39 @@ namespace HCPortal.Models.L2SRepository
         {
            
             bool rezultat_upisa = true;
-            bool odeljenje_postoji = traziOdeljenje(odeljenjeLoc.naziv, odeljenjeLoc.razred.sifra_razreda);
+            Odeljenje odeljenje_ = SkolaEntities.Odeljenjes.FirstOrDefault(o => o.sifra_odeljenja == odeljenjeLoc.sifra_odeljenja);
 
-            if(odeljenje_postoji == false)
+
+
+            if(odeljenje_.naziv != odeljenjeLoc.naziv)
             {
+                bool odeljenje_postoji = traziOdeljenje(odeljenjeLoc.naziv, odeljenjeLoc.razred.sifra_razreda);
+
+                if (odeljenje_postoji == false)
+                {
+                    Odeljenje odeljenje = SkolaEntities.Odeljenjes.FirstOrDefault(o => o.sifra_odeljenja == odeljenjeLoc.sifra_odeljenja);
+
+                    odeljenje.naziv = odeljenjeLoc.naziv;
+                    odeljenje.sifra_razreda = odeljenjeLoc.razred.sifra_razreda;
+
+                    try
+                    {
+                        SkolaEntities.SubmitChanges();
+                    }
+                    catch (Exception e)
+                    {
+                        Console.WriteLine("Greska pri izmeni odeljenja odeljenja " + e);
+                        rezultat_upisa = false;
+                    }
+                }
+                else
+                {
+                    rezultat_upisa = false;
+                }
+
+
+            } else {
+
                 Odeljenje odeljenje = SkolaEntities.Odeljenjes.FirstOrDefault(o => o.sifra_odeljenja == odeljenjeLoc.sifra_odeljenja);
 
                 odeljenje.naziv = odeljenjeLoc.naziv;
@@ -38,11 +67,12 @@ namespace HCPortal.Models.L2SRepository
                     Console.WriteLine("Greska pri izmeni odeljenja odeljenja " + e);
                     rezultat_upisa = false;
                 }
+
+
             }
-            else
-            {
-                rezultat_upisa = false;
-            }
+
+    
+
 
             return rezultat_upisa;
         }
