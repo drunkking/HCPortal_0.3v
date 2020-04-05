@@ -23,57 +23,93 @@ namespace HCPortal.Controllers
         }
 
 
-        public ActionResult PregledOdeljenja(int razred)
+        public ActionResult PregledOdeljenja(int? razred)
         {
 
-            List<OdeljenjeLOC> sva_odeljenja = dnevnikRepository.odeljenjaSaRazredom(razred);
-
-            if(sva_odeljenja != null)
+            if(razred != null)
             {
-                return View("PregledOdeljenja",sva_odeljenja);
+                List<OdeljenjeLOC> sva_odeljenja = dnevnikRepository.odeljenjaSaRazredom(razred);
+
+                if (sva_odeljenja != null)
+                {
+                    return View("PregledOdeljenja", sva_odeljenja);
+                }
+                else
+                {
+                    return HttpNotFound("404");
+                }
             }
             else
             {
                 return HttpNotFound("404");
             }
+
+
         }
 
-        public ActionResult PregledUcenika(int odeljenje)
+        public ActionResult PregledUcenika(int? odeljenje)
         {
-            List<UcenikLOC> svi_ucenici = dnevnikRepository.uceniciIzOdeljenja(odeljenje);
 
-            if(svi_ucenici != null)
+            if(odeljenje != null)
             {
-                return View("PregledUcenika",svi_ucenici);
+                List<UcenikLOC> svi_ucenici = dnevnikRepository.uceniciIzOdeljenja(odeljenje);
+
+                if (svi_ucenici != null)
+                {
+                    return View("PregledUcenika", svi_ucenici);
+                }
+                else
+                {
+                    return HttpNotFound("404");
+                }
             }
             else
             {
                 return HttpNotFound("404");
             }
+
         }
 
 
-        public ActionResult PregledPredmeta(int ucenik_sifra)
+        public ActionResult PregledPredmeta(int? ucenik_sifra)
         {
-            List<PredmetLOC> svi_predmeti = dnevnikRepository.predmetiUcenika(ucenik_sifra);
-                 
-            if (svi_predmeti != null)
+
+            if(ucenik_sifra != null)
             {
-                ViewBag.sifra_ucenika = ucenik_sifra;
-                ViewBag.ucenik = ucenikRepositroy.traziUcenika(ucenik_sifra);
-                return View("PregledPredmeta", svi_predmeti);
+                List<PredmetLOC> svi_predmeti = dnevnikRepository.predmetiUcenika(ucenik_sifra);
+
+                if (svi_predmeti != null)
+                {
+                    ViewBag.sifra_ucenika = ucenik_sifra;
+                    var ucenikLoc = ucenikRepositroy.traziUcenika(ucenik_sifra);
+
+                    if (ucenikLoc != null)
+                    {
+                        ViewBag.ucenik = ucenikLoc;
+                        return View("PregledPredmeta", svi_predmeti);
+                    }
+                    else
+                    {
+                        return HttpNotFound("404");
+                    }
+                }
+                else
+                {
+                    return HttpNotFound("404");
+                }
             }
             else
             {
                 return HttpNotFound("404");
-            }           
+            }
+         
         }
 
-        public ActionResult PregledOcena(int ucenik_sifra, int predmet_sifra)
+        public ActionResult PregledOcena(int? ucenik_sifra, int? predmet_sifra)
         {
             List<OcenaUcenikaMetaLOC> sve_ocene_ucenika = dnevnikRepository.traziOceneUcenika(ucenik_sifra, predmet_sifra);
 
-            if(sve_ocene_ucenika != null)
+            if(sve_ocene_ucenika.Count() != 0)
             {
                 ViewBag.ucenik = ucenikRepositroy.traziUcenika(ucenik_sifra);
                 ViewBag.sifra_predmeta = predmet_sifra;

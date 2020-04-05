@@ -15,90 +15,119 @@ namespace HCPortal.Models.L2SRepository
             SkolaEntities = new HcPortalDbDataContext();
         }
 
-        public List<OcenaUcenikaMetaLOC> traziOceneUcenika(int ucenik_sifra, int predmet_sifra)
+        public List<OcenaUcenikaMetaLOC> traziOceneUcenika(int? ucenik_sifra, int? predmet_sifra)
         {
-            var ocene_ucenika = SkolaEntities.UcenikImaOcenus.Where(ou => ou.sifra_ucenika == ucenik_sifra && ou.sifra_predmeta == predmet_sifra).ToList();
+                var ocene_ucenika = SkolaEntities.UcenikImaOcenus.Where(ou => ou.sifra_ucenika == ucenik_sifra && ou.sifra_predmeta == predmet_sifra).ToList();
 
-            List<OcenaUcenikaMetaLOC> oceneUcenikaLoc = new List<OcenaUcenikaMetaLOC>();
+                List<OcenaUcenikaMetaLOC> oceneUcenikaLoc = new List<OcenaUcenikaMetaLOC>();
 
-            foreach (var o in ocene_ucenika)
-            {
-                OcenaUcenikaMetaLOC ocenaLoc = new OcenaUcenikaMetaLOC();
+                foreach (var o in ocene_ucenika)
+                {
+                    OcenaUcenikaMetaLOC ocenaLoc = new OcenaUcenikaMetaLOC();
 
-                ocenaLoc.sifra_ucenika = o.sifra_ucenika;
-                ocenaLoc.sifra_predmeta = o.sifra_predmeta;
-                ocenaLoc.ocena = o.ocena;
-                ocenaLoc.polugodiste = o.polugodiste;
-                ocenaLoc.opis_prikaz = o.opis;
-                ocenaLoc.vreme_upisa = o.vreme_upisa;
+                    ocenaLoc.sifra_ucenika = o.sifra_ucenika;
+                    ocenaLoc.sifra_predmeta = o.sifra_predmeta;
+                    ocenaLoc.ocena = o.ocena;
+                    ocenaLoc.polugodiste = o.polugodiste;
+                    ocenaLoc.opis_prikaz = o.opis;
+                    ocenaLoc.vreme_upisa = o.vreme_upisa;
 
-                oceneUcenikaLoc.Add(ocenaLoc);
-            }
+                    oceneUcenikaLoc.Add(ocenaLoc);
+                }
 
-            return oceneUcenikaLoc;
+                return oceneUcenikaLoc;
         }
 
-        public List<OdeljenjeLOC> odeljenjaSaRazredom(int razred)
+        public List<OdeljenjeLOC> odeljenjaSaRazredom(int? razred)
         {
 
             var odeljenja = SkolaEntities.Odeljenjes.Where(o => o.sifra_razreda == razred);
-            List<OdeljenjeLOC> sva_odeljenja = new List<OdeljenjeLOC>();
 
-            foreach (var o in odeljenja)
+            if (odeljenja.Any())
             {
-                OdeljenjeLOC odeljenjeLoc = new OdeljenjeLOC();
-                odeljenjeLoc.naziv = o.naziv;
-                odeljenjeLoc.sifra_odeljenja = o.sifra_odeljenja;
-                sva_odeljenja.Add(odeljenjeLoc);
+
+                List<OdeljenjeLOC> sva_odeljenja = new List<OdeljenjeLOC>();
+
+                foreach (var o in odeljenja)
+                {
+                    OdeljenjeLOC odeljenjeLoc = new OdeljenjeLOC();
+                    odeljenjeLoc.naziv = o.naziv;
+                    odeljenjeLoc.sifra_odeljenja = o.sifra_odeljenja;
+                    sva_odeljenja.Add(odeljenjeLoc);
+                }
+                return sva_odeljenja;
             }
-            return sva_odeljenja;
+            else
+            {
+                return null;
+            }
         }
 
-        public List<PredmetLOC> predmetiUcenika(int ucenik_sifra)
+        public List<PredmetLOC> predmetiUcenika(int? ucenik_sifra)
         {
-            var ucenik_ = SkolaEntities.Uceniks.FirstOrDefault(u => u.sifra_ucenika == ucenik_sifra);
-            int sifra_odeljenja = ucenik_.sifra_odeljenja;
+            Ucenik ucenik_ = SkolaEntities.Uceniks.FirstOrDefault(u => u.sifra_ucenika == ucenik_sifra);
 
-            var odeljenje = SkolaEntities.Odeljenjes.FirstOrDefault(o => o.sifra_odeljenja == sifra_odeljenja);
-            var sifre_predmeta = SkolaEntities.RazredImaPredmets.Where(rp => rp.sifra_razreda == odeljenje.sifra_razreda).Select(rp => rp.sifra_predmeta);
-
-            List<PredmetLOC> svi_predmeti = new List<PredmetLOC>();
-
-            foreach (var sifra in sifre_predmeta)
+            if (ucenik_ != null)
             {
-                var predmet = SkolaEntities.Predmets.FirstOrDefault(p => p.sifra_predmeta == sifra);
 
-                PredmetLOC predmetLoc = new PredmetLOC();
-                predmetLoc.sifra_predmeta = predmet.sifra_predmeta;
-                predmetLoc.naziv = predmet.naziv;
-                svi_predmeti.Add(predmetLoc);
+                int sifra_odeljenja = ucenik_.sifra_odeljenja;
 
+                var odeljenje = SkolaEntities.Odeljenjes.FirstOrDefault(o => o.sifra_odeljenja == sifra_odeljenja);
+                var sifre_predmeta = SkolaEntities.RazredImaPredmets.Where(rp => rp.sifra_razreda == odeljenje.sifra_razreda).Select(rp => rp.sifra_predmeta);
+
+                List<PredmetLOC> svi_predmeti = new List<PredmetLOC>();
+
+                foreach (var sifra in sifre_predmeta)
+                {
+                    var predmet = SkolaEntities.Predmets.FirstOrDefault(p => p.sifra_predmeta == sifra);
+
+                    PredmetLOC predmetLoc = new PredmetLOC();
+                    predmetLoc.sifra_predmeta = predmet.sifra_predmeta;
+                    predmetLoc.naziv = predmet.naziv;
+                    svi_predmeti.Add(predmetLoc);
+
+                }
+
+                return svi_predmeti;
             }
-
-            return svi_predmeti;
+            else
+            {
+                return null;
+            }
+                
   
         }
 
-        public List<UcenikLOC> uceniciIzOdeljenja(int odeljenje)
+        public List<UcenikLOC> uceniciIzOdeljenja(int? odeljenje)
         {
             var ucenici = SkolaEntities.Uceniks.Where(u => u.sifra_odeljenja == odeljenje);
             List<UcenikLOC> svi_ucenici = new List<UcenikLOC>();
 
-            foreach(var u in ucenici)
+
+            if (ucenici.Any())
             {
-                UcenikLOC ucenikLoc = new UcenikLOC();
-                ucenikLoc.sifra_ucenika = u.sifra_ucenika;
-                ucenikLoc.ime = u.ime;
-                ucenikLoc.prezime = u.prezime;
-                ucenikLoc.jmbg = u.jmbg;
-                ucenikLoc.korisnicko_ime = u.korisnicko_ime;
 
-                Odeljenje odelj = SkolaEntities.Odeljenjes.FirstOrDefault(o => o.sifra_odeljenja == odeljenje);
-                ucenikLoc.odeljenje = new OdeljenjeLOC { naziv = odelj.naziv, sifra_odeljenja = odelj.sifra_odeljenja };
+                foreach (var u in ucenici)
+                {
+                    UcenikLOC ucenikLoc = new UcenikLOC();
+                    ucenikLoc.sifra_ucenika = u.sifra_ucenika;
+                    ucenikLoc.ime = u.ime;
+                    ucenikLoc.prezime = u.prezime;
+                    ucenikLoc.jmbg = u.jmbg;
+                    ucenikLoc.korisnicko_ime = u.korisnicko_ime;
 
-                svi_ucenici.Add(ucenikLoc);
+                    Odeljenje odelj = SkolaEntities.Odeljenjes.FirstOrDefault(o => o.sifra_odeljenja == odeljenje);
+                    ucenikLoc.odeljenje = new OdeljenjeLOC { naziv = odelj.naziv, sifra_odeljenja = odelj.sifra_odeljenja };
+
+                    svi_ucenici.Add(ucenikLoc);
+                }
+                return svi_ucenici;
+
             }
-            return svi_ucenici;
+            else
+            {
+                return null;
+            }
         }
 
         public bool upisOceneUceniku(OcenaUcenikaMetaLOC ocenaUcenikaMetaLoc)
