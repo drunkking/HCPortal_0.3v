@@ -11,23 +11,23 @@
 
 namespace HCPortal.Models.L2SRepository
 {
-    using System.Data.Linq;
-    using System.Data.Linq.Mapping;
-    using System.Data;
-    using System.Collections.Generic;
-    using System.Reflection;
-    using System.Linq;
-    using System.Linq.Expressions;
-    using System.ComponentModel;
-    using System;
-    
-    
-    [global::System.Data.Linq.Mapping.DatabaseAttribute(Name="hcportal")]
-    public partial class HcPortalDbDataContext : System.Data.Linq.DataContext
-    {
-        
-        private static System.Data.Linq.Mapping.MappingSource mappingSource = new AttributeMappingSource();
-        
+	using System.Data.Linq;
+	using System.Data.Linq.Mapping;
+	using System.Data;
+	using System.Collections.Generic;
+	using System.Reflection;
+	using System.Linq;
+	using System.Linq.Expressions;
+	using System.ComponentModel;
+	using System;
+	
+	
+	[global::System.Data.Linq.Mapping.DatabaseAttribute(Name="hcportal")]
+	public partial class HcPortalDbDataContext : System.Data.Linq.DataContext
+	{
+		
+		private static System.Data.Linq.Mapping.MappingSource mappingSource = new AttributeMappingSource();
+		
     #region Extensibility Method Definitions
     partial void OnCreated();
     partial void InsertModerator(Moderator instance);
@@ -45,141 +45,141 @@ namespace HCPortal.Models.L2SRepository
     partial void InsertProfesorPredajePredmetOdeljenju(ProfesorPredajePredmetOdeljenju instance);
     partial void UpdateProfesorPredajePredmetOdeljenju(ProfesorPredajePredmetOdeljenju instance);
     partial void DeleteProfesorPredajePredmetOdeljenju(ProfesorPredajePredmetOdeljenju instance);
-    partial void InsertUcenik(Ucenik instance);
-    partial void UpdateUcenik(Ucenik instance);
-    partial void DeleteUcenik(Ucenik instance);
-    partial void InsertRazredImaPredmet(RazredImaPredmet instance);
-    partial void UpdateRazredImaPredmet(RazredImaPredmet instance);
-    partial void DeleteRazredImaPredmet(RazredImaPredmet instance);
     partial void InsertRazred(Razred instance);
     partial void UpdateRazred(Razred instance);
     partial void DeleteRazred(Razred instance);
+    partial void InsertRazredImaPredmet(RazredImaPredmet instance);
+    partial void UpdateRazredImaPredmet(RazredImaPredmet instance);
+    partial void DeleteRazredImaPredmet(RazredImaPredmet instance);
+    partial void InsertUcenik(Ucenik instance);
+    partial void UpdateUcenik(Ucenik instance);
+    partial void DeleteUcenik(Ucenik instance);
     partial void InsertUcenikImaOcenu(UcenikImaOcenu instance);
     partial void UpdateUcenikImaOcenu(UcenikImaOcenu instance);
     partial void DeleteUcenikImaOcenu(UcenikImaOcenu instance);
     #endregion
-        
-        public HcPortalDbDataContext() : 
-                base(global::System.Configuration.ConfigurationManager.ConnectionStrings["hcportalConnectionString"].ConnectionString, mappingSource)
-        {
-            OnCreated();
-        }
-        
-        public HcPortalDbDataContext(string connection) : 
-                base(connection, mappingSource)
-        {
-            OnCreated();
-        }
-        
-        public HcPortalDbDataContext(System.Data.IDbConnection connection) : 
-                base(connection, mappingSource)
-        {
-            OnCreated();
-        }
-        
-        public HcPortalDbDataContext(string connection, System.Data.Linq.Mapping.MappingSource mappingSource) : 
-                base(connection, mappingSource)
-        {
-            OnCreated();
-        }
-        
-        public HcPortalDbDataContext(System.Data.IDbConnection connection, System.Data.Linq.Mapping.MappingSource mappingSource) : 
-                base(connection, mappingSource)
-        {
-            OnCreated();
-        }
-        
-        public System.Data.Linq.Table<Moderator> Moderators
-        {
-            get
-            {
-                return this.GetTable<Moderator>();
-            }
-        }
-        
-        public System.Data.Linq.Table<Odeljenje> Odeljenjes
-        {
-            get
-            {
-                return this.GetTable<Odeljenje>();
-            }
-        }
-        
-        public System.Data.Linq.Table<Predmet> Predmets
-        {
-            get
-            {
-                return this.GetTable<Predmet>();
-            }
-        }
-        
-        public System.Data.Linq.Table<Profesor> Profesors
-        {
-            get
-            {
-                return this.GetTable<Profesor>();
-            }
-        }
-        
-        public System.Data.Linq.Table<ProfesorPredajePredmetOdeljenju> ProfesorPredajePredmetOdeljenjus
-        {
-            get
-            {
-                return this.GetTable<ProfesorPredajePredmetOdeljenju>();
-            }
-        }
-        
-        public System.Data.Linq.Table<Ucenik> Uceniks
-        {
-            get
-            {
-                return this.GetTable<Ucenik>();
-            }
-        }
-        
-        public System.Data.Linq.Table<RazredImaPredmet> RazredImaPredmets
-        {
-            get
-            {
-                return this.GetTable<RazredImaPredmet>();
-            }
-        }
-        
-        public System.Data.Linq.Table<Razred> Razreds
-        {
-            get
-            {
-                return this.GetTable<Razred>();
-            }
-        }
-        
-        public System.Data.Linq.Table<UcenikImaOcenu> UcenikImaOcenus
-        {
-            get
-            {
-                return this.GetTable<UcenikImaOcenu>();
-            }
-        }
-    }
-    
-    [global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Moderator")]
-    public partial class Moderator : INotifyPropertyChanging, INotifyPropertyChanged
-    {
-        
-        private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-        
-        private int _sifra_moderatora;
-        
-        private string _ime;
-        
-        private string _prezime;
-        
-        private string _korisnicko_ime;
-        
-        private string _sifra;
-        
-        private string _datum_rodjenja;
-        
+		
+		public HcPortalDbDataContext() : 
+				base(global::System.Configuration.ConfigurationManager.ConnectionStrings["hcportalConnectionString1"].ConnectionString, mappingSource)
+		{
+			OnCreated();
+		}
+		
+		public HcPortalDbDataContext(string connection) : 
+				base(connection, mappingSource)
+		{
+			OnCreated();
+		}
+		
+		public HcPortalDbDataContext(System.Data.IDbConnection connection) : 
+				base(connection, mappingSource)
+		{
+			OnCreated();
+		}
+		
+		public HcPortalDbDataContext(string connection, System.Data.Linq.Mapping.MappingSource mappingSource) : 
+				base(connection, mappingSource)
+		{
+			OnCreated();
+		}
+		
+		public HcPortalDbDataContext(System.Data.IDbConnection connection, System.Data.Linq.Mapping.MappingSource mappingSource) : 
+				base(connection, mappingSource)
+		{
+			OnCreated();
+		}
+		
+		public System.Data.Linq.Table<Moderator> Moderators
+		{
+			get
+			{
+				return this.GetTable<Moderator>();
+			}
+		}
+		
+		public System.Data.Linq.Table<Odeljenje> Odeljenjes
+		{
+			get
+			{
+				return this.GetTable<Odeljenje>();
+			}
+		}
+		
+		public System.Data.Linq.Table<Predmet> Predmets
+		{
+			get
+			{
+				return this.GetTable<Predmet>();
+			}
+		}
+		
+		public System.Data.Linq.Table<Profesor> Profesors
+		{
+			get
+			{
+				return this.GetTable<Profesor>();
+			}
+		}
+		
+		public System.Data.Linq.Table<ProfesorPredajePredmetOdeljenju> ProfesorPredajePredmetOdeljenjus
+		{
+			get
+			{
+				return this.GetTable<ProfesorPredajePredmetOdeljenju>();
+			}
+		}
+		
+		public System.Data.Linq.Table<Razred> Razreds
+		{
+			get
+			{
+				return this.GetTable<Razred>();
+			}
+		}
+		
+		public System.Data.Linq.Table<RazredImaPredmet> RazredImaPredmets
+		{
+			get
+			{
+				return this.GetTable<RazredImaPredmet>();
+			}
+		}
+		
+		public System.Data.Linq.Table<Ucenik> Uceniks
+		{
+			get
+			{
+				return this.GetTable<Ucenik>();
+			}
+		}
+		
+		public System.Data.Linq.Table<UcenikImaOcenu> UcenikImaOcenus
+		{
+			get
+			{
+				return this.GetTable<UcenikImaOcenu>();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Moderator")]
+	public partial class Moderator : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _sifra_moderatora;
+		
+		private string _ime;
+		
+		private string _prezime;
+		
+		private string _korisnicko_ime;
+		
+		private string _sifra;
+		
+		private string _datum_rodjenja;
+		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -197,171 +197,171 @@ namespace HCPortal.Models.L2SRepository
     partial void Ondatum_rodjenjaChanging(string value);
     partial void Ondatum_rodjenjaChanged();
     #endregion
-        
-        public Moderator()
-        {
-            OnCreated();
-        }
-        
-        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sifra_moderatora", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-        public int sifra_moderatora
-        {
-            get
-            {
-                return this._sifra_moderatora;
-            }
-            set
-            {
-                if ((this._sifra_moderatora != value))
-                {
-                    this.Onsifra_moderatoraChanging(value);
-                    this.SendPropertyChanging();
-                    this._sifra_moderatora = value;
-                    this.SendPropertyChanged("sifra_moderatora");
-                    this.Onsifra_moderatoraChanged();
-                }
-            }
-        }
-        
-        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ime", DbType="NVarChar(60)")]
-        public string ime
-        {
-            get
-            {
-                return this._ime;
-            }
-            set
-            {
-                if ((this._ime != value))
-                {
-                    this.OnimeChanging(value);
-                    this.SendPropertyChanging();
-                    this._ime = value;
-                    this.SendPropertyChanged("ime");
-                    this.OnimeChanged();
-                }
-            }
-        }
-        
-        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_prezime", DbType="NVarChar(60)")]
-        public string prezime
-        {
-            get
-            {
-                return this._prezime;
-            }
-            set
-            {
-                if ((this._prezime != value))
-                {
-                    this.OnprezimeChanging(value);
-                    this.SendPropertyChanging();
-                    this._prezime = value;
-                    this.SendPropertyChanged("prezime");
-                    this.OnprezimeChanged();
-                }
-            }
-        }
-        
-        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_korisnicko_ime", DbType="NVarChar(60)")]
-        public string korisnicko_ime
-        {
-            get
-            {
-                return this._korisnicko_ime;
-            }
-            set
-            {
-                if ((this._korisnicko_ime != value))
-                {
-                    this.Onkorisnicko_imeChanging(value);
-                    this.SendPropertyChanging();
-                    this._korisnicko_ime = value;
-                    this.SendPropertyChanged("korisnicko_ime");
-                    this.Onkorisnicko_imeChanged();
-                }
-            }
-        }
-        
-        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sifra", DbType="NVarChar(250)")]
-        public string sifra
-        {
-            get
-            {
-                return this._sifra;
-            }
-            set
-            {
-                if ((this._sifra != value))
-                {
-                    this.OnsifraChanging(value);
-                    this.SendPropertyChanging();
-                    this._sifra = value;
-                    this.SendPropertyChanged("sifra");
-                    this.OnsifraChanged();
-                }
-            }
-        }
-        
-        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_datum_rodjenja", DbType="NVarChar(60)")]
-        public string datum_rodjenja
-        {
-            get
-            {
-                return this._datum_rodjenja;
-            }
-            set
-            {
-                if ((this._datum_rodjenja != value))
-                {
-                    this.Ondatum_rodjenjaChanging(value);
-                    this.SendPropertyChanging();
-                    this._datum_rodjenja = value;
-                    this.SendPropertyChanged("datum_rodjenja");
-                    this.Ondatum_rodjenjaChanged();
-                }
-            }
-        }
-        
-        public event PropertyChangingEventHandler PropertyChanging;
-        
-        public event PropertyChangedEventHandler PropertyChanged;
-        
-        protected virtual void SendPropertyChanging()
-        {
-            if ((this.PropertyChanging != null))
-            {
-                this.PropertyChanging(this, emptyChangingEventArgs);
-            }
-        }
-        
-        protected virtual void SendPropertyChanged(String propertyName)
-        {
-            if ((this.PropertyChanged != null))
-            {
-                this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Odeljenje")]
-    public partial class Odeljenje : INotifyPropertyChanging, INotifyPropertyChanged
-    {
-        
-        private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-        
-        private int _sifra_odeljenja;
-        
-        private string _naziv;
-        
-        private int _sifra_razreda;
-        
-        private EntitySet<ProfesorPredajePredmetOdeljenju> _ProfesorPredajePredmetOdeljenjus;
-        
-        private EntitySet<Ucenik> _Uceniks;
-        
-        private EntityRef<Razred> _Razred;
-        
+		
+		public Moderator()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sifra_moderatora", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int sifra_moderatora
+		{
+			get
+			{
+				return this._sifra_moderatora;
+			}
+			set
+			{
+				if ((this._sifra_moderatora != value))
+				{
+					this.Onsifra_moderatoraChanging(value);
+					this.SendPropertyChanging();
+					this._sifra_moderatora = value;
+					this.SendPropertyChanged("sifra_moderatora");
+					this.Onsifra_moderatoraChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ime", DbType="NVarChar(60)")]
+		public string ime
+		{
+			get
+			{
+				return this._ime;
+			}
+			set
+			{
+				if ((this._ime != value))
+				{
+					this.OnimeChanging(value);
+					this.SendPropertyChanging();
+					this._ime = value;
+					this.SendPropertyChanged("ime");
+					this.OnimeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_prezime", DbType="NVarChar(60)")]
+		public string prezime
+		{
+			get
+			{
+				return this._prezime;
+			}
+			set
+			{
+				if ((this._prezime != value))
+				{
+					this.OnprezimeChanging(value);
+					this.SendPropertyChanging();
+					this._prezime = value;
+					this.SendPropertyChanged("prezime");
+					this.OnprezimeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_korisnicko_ime", DbType="NVarChar(60)")]
+		public string korisnicko_ime
+		{
+			get
+			{
+				return this._korisnicko_ime;
+			}
+			set
+			{
+				if ((this._korisnicko_ime != value))
+				{
+					this.Onkorisnicko_imeChanging(value);
+					this.SendPropertyChanging();
+					this._korisnicko_ime = value;
+					this.SendPropertyChanged("korisnicko_ime");
+					this.Onkorisnicko_imeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sifra", DbType="NVarChar(250)")]
+		public string sifra
+		{
+			get
+			{
+				return this._sifra;
+			}
+			set
+			{
+				if ((this._sifra != value))
+				{
+					this.OnsifraChanging(value);
+					this.SendPropertyChanging();
+					this._sifra = value;
+					this.SendPropertyChanged("sifra");
+					this.OnsifraChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_datum_rodjenja", DbType="NVarChar(60)")]
+		public string datum_rodjenja
+		{
+			get
+			{
+				return this._datum_rodjenja;
+			}
+			set
+			{
+				if ((this._datum_rodjenja != value))
+				{
+					this.Ondatum_rodjenjaChanging(value);
+					this.SendPropertyChanging();
+					this._datum_rodjenja = value;
+					this.SendPropertyChanged("datum_rodjenja");
+					this.Ondatum_rodjenjaChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Odeljenje")]
+	public partial class Odeljenje : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _sifra_odeljenja;
+		
+		private string _naziv;
+		
+		private int _sifra_razreda;
+		
+		private EntitySet<ProfesorPredajePredmetOdeljenju> _ProfesorPredajePredmetOdeljenjus;
+		
+		private EntitySet<Ucenik> _Uceniks;
+		
+		private EntityRef<Razred> _Razred;
+		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -373,200 +373,200 @@ namespace HCPortal.Models.L2SRepository
     partial void Onsifra_razredaChanging(int value);
     partial void Onsifra_razredaChanged();
     #endregion
-        
-        public Odeljenje()
-        {
-            this._ProfesorPredajePredmetOdeljenjus = new EntitySet<ProfesorPredajePredmetOdeljenju>(new Action<ProfesorPredajePredmetOdeljenju>(this.attach_ProfesorPredajePredmetOdeljenjus), new Action<ProfesorPredajePredmetOdeljenju>(this.detach_ProfesorPredajePredmetOdeljenjus));
-            this._Uceniks = new EntitySet<Ucenik>(new Action<Ucenik>(this.attach_Uceniks), new Action<Ucenik>(this.detach_Uceniks));
-            this._Razred = default(EntityRef<Razred>);
-            OnCreated();
-        }
-        
-        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sifra_odeljenja", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-        public int sifra_odeljenja
-        {
-            get
-            {
-                return this._sifra_odeljenja;
-            }
-            set
-            {
-                if ((this._sifra_odeljenja != value))
-                {
-                    this.Onsifra_odeljenjaChanging(value);
-                    this.SendPropertyChanging();
-                    this._sifra_odeljenja = value;
-                    this.SendPropertyChanged("sifra_odeljenja");
-                    this.Onsifra_odeljenjaChanged();
-                }
-            }
-        }
-        
-        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_naziv", DbType="NVarChar(60)")]
-        public string naziv
-        {
-            get
-            {
-                return this._naziv;
-            }
-            set
-            {
-                if ((this._naziv != value))
-                {
-                    this.OnnazivChanging(value);
-                    this.SendPropertyChanging();
-                    this._naziv = value;
-                    this.SendPropertyChanged("naziv");
-                    this.OnnazivChanged();
-                }
-            }
-        }
-        
-        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sifra_razreda", DbType="Int NOT NULL")]
-        public int sifra_razreda
-        {
-            get
-            {
-                return this._sifra_razreda;
-            }
-            set
-            {
-                if ((this._sifra_razreda != value))
-                {
-                    if (this._Razred.HasLoadedOrAssignedValue)
-                    {
-                        throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-                    }
-                    this.Onsifra_razredaChanging(value);
-                    this.SendPropertyChanging();
-                    this._sifra_razreda = value;
-                    this.SendPropertyChanged("sifra_razreda");
-                    this.Onsifra_razredaChanged();
-                }
-            }
-        }
-        
-        [global::System.Data.Linq.Mapping.AssociationAttribute(Name="Odeljenje_ProfesorPredajePredmetOdeljenju", Storage="_ProfesorPredajePredmetOdeljenjus", ThisKey="sifra_odeljenja", OtherKey="sifra_odeljenja")]
-        public EntitySet<ProfesorPredajePredmetOdeljenju> ProfesorPredajePredmetOdeljenjus
-        {
-            get
-            {
-                return this._ProfesorPredajePredmetOdeljenjus;
-            }
-            set
-            {
-                this._ProfesorPredajePredmetOdeljenjus.Assign(value);
-            }
-        }
-        
-        [global::System.Data.Linq.Mapping.AssociationAttribute(Name="Odeljenje_Ucenik", Storage="_Uceniks", ThisKey="sifra_odeljenja", OtherKey="sifra_odeljenja")]
-        public EntitySet<Ucenik> Uceniks
-        {
-            get
-            {
-                return this._Uceniks;
-            }
-            set
-            {
-                this._Uceniks.Assign(value);
-            }
-        }
-        
-        [global::System.Data.Linq.Mapping.AssociationAttribute(Name="Razred_Odeljenje", Storage="_Razred", ThisKey="sifra_razreda", OtherKey="sifra_razreda", IsForeignKey=true)]
-        public Razred Razred
-        {
-            get
-            {
-                return this._Razred.Entity;
-            }
-            set
-            {
-                Razred previousValue = this._Razred.Entity;
-                if (((previousValue != value) 
-                            || (this._Razred.HasLoadedOrAssignedValue == false)))
-                {
-                    this.SendPropertyChanging();
-                    if ((previousValue != null))
-                    {
-                        this._Razred.Entity = null;
-                        previousValue.Odeljenjes.Remove(this);
-                    }
-                    this._Razred.Entity = value;
-                    if ((value != null))
-                    {
-                        value.Odeljenjes.Add(this);
-                        this._sifra_razreda = value.sifra_razreda;
-                    }
-                    else
-                    {
-                        this._sifra_razreda = default(int);
-                    }
-                    this.SendPropertyChanged("Razred");
-                }
-            }
-        }
-        
-        public event PropertyChangingEventHandler PropertyChanging;
-        
-        public event PropertyChangedEventHandler PropertyChanged;
-        
-        protected virtual void SendPropertyChanging()
-        {
-            if ((this.PropertyChanging != null))
-            {
-                this.PropertyChanging(this, emptyChangingEventArgs);
-            }
-        }
-        
-        protected virtual void SendPropertyChanged(String propertyName)
-        {
-            if ((this.PropertyChanged != null))
-            {
-                this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-            }
-        }
-        
-        private void attach_ProfesorPredajePredmetOdeljenjus(ProfesorPredajePredmetOdeljenju entity)
-        {
-            this.SendPropertyChanging();
-            entity.Odeljenje = this;
-        }
-        
-        private void detach_ProfesorPredajePredmetOdeljenjus(ProfesorPredajePredmetOdeljenju entity)
-        {
-            this.SendPropertyChanging();
-            entity.Odeljenje = null;
-        }
-        
-        private void attach_Uceniks(Ucenik entity)
-        {
-            this.SendPropertyChanging();
-            entity.Odeljenje = this;
-        }
-        
-        private void detach_Uceniks(Ucenik entity)
-        {
-            this.SendPropertyChanging();
-            entity.Odeljenje = null;
-        }
-    }
-    
-    [global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Predmet")]
-    public partial class Predmet : INotifyPropertyChanging, INotifyPropertyChanged
-    {
-        
-        private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-        
-        private int _sifra_predmeta;
-        
-        private string _naziv;
-        
-        private EntitySet<ProfesorPredajePredmetOdeljenju> _ProfesorPredajePredmetOdeljenjus;
-        
-        private EntitySet<RazredImaPredmet> _RazredImaPredmets;
-        
-        private EntitySet<UcenikImaOcenu> _UcenikImaOcenus;
-        
+		
+		public Odeljenje()
+		{
+			this._ProfesorPredajePredmetOdeljenjus = new EntitySet<ProfesorPredajePredmetOdeljenju>(new Action<ProfesorPredajePredmetOdeljenju>(this.attach_ProfesorPredajePredmetOdeljenjus), new Action<ProfesorPredajePredmetOdeljenju>(this.detach_ProfesorPredajePredmetOdeljenjus));
+			this._Uceniks = new EntitySet<Ucenik>(new Action<Ucenik>(this.attach_Uceniks), new Action<Ucenik>(this.detach_Uceniks));
+			this._Razred = default(EntityRef<Razred>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sifra_odeljenja", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int sifra_odeljenja
+		{
+			get
+			{
+				return this._sifra_odeljenja;
+			}
+			set
+			{
+				if ((this._sifra_odeljenja != value))
+				{
+					this.Onsifra_odeljenjaChanging(value);
+					this.SendPropertyChanging();
+					this._sifra_odeljenja = value;
+					this.SendPropertyChanged("sifra_odeljenja");
+					this.Onsifra_odeljenjaChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_naziv", DbType="NVarChar(60)")]
+		public string naziv
+		{
+			get
+			{
+				return this._naziv;
+			}
+			set
+			{
+				if ((this._naziv != value))
+				{
+					this.OnnazivChanging(value);
+					this.SendPropertyChanging();
+					this._naziv = value;
+					this.SendPropertyChanged("naziv");
+					this.OnnazivChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sifra_razreda", DbType="Int NOT NULL")]
+		public int sifra_razreda
+		{
+			get
+			{
+				return this._sifra_razreda;
+			}
+			set
+			{
+				if ((this._sifra_razreda != value))
+				{
+					if (this._Razred.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.Onsifra_razredaChanging(value);
+					this.SendPropertyChanging();
+					this._sifra_razreda = value;
+					this.SendPropertyChanged("sifra_razreda");
+					this.Onsifra_razredaChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Odeljenje_ProfesorPredajePredmetOdeljenju", Storage="_ProfesorPredajePredmetOdeljenjus", ThisKey="sifra_odeljenja", OtherKey="sifra_odeljenja")]
+		public EntitySet<ProfesorPredajePredmetOdeljenju> ProfesorPredajePredmetOdeljenjus
+		{
+			get
+			{
+				return this._ProfesorPredajePredmetOdeljenjus;
+			}
+			set
+			{
+				this._ProfesorPredajePredmetOdeljenjus.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Odeljenje_Ucenik", Storage="_Uceniks", ThisKey="sifra_odeljenja", OtherKey="sifra_odeljenja")]
+		public EntitySet<Ucenik> Uceniks
+		{
+			get
+			{
+				return this._Uceniks;
+			}
+			set
+			{
+				this._Uceniks.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Razred_Odeljenje", Storage="_Razred", ThisKey="sifra_razreda", OtherKey="sifra_razreda", IsForeignKey=true)]
+		public Razred Razred
+		{
+			get
+			{
+				return this._Razred.Entity;
+			}
+			set
+			{
+				Razred previousValue = this._Razred.Entity;
+				if (((previousValue != value) 
+							|| (this._Razred.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Razred.Entity = null;
+						previousValue.Odeljenjes.Remove(this);
+					}
+					this._Razred.Entity = value;
+					if ((value != null))
+					{
+						value.Odeljenjes.Add(this);
+						this._sifra_razreda = value.sifra_razreda;
+					}
+					else
+					{
+						this._sifra_razreda = default(int);
+					}
+					this.SendPropertyChanged("Razred");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_ProfesorPredajePredmetOdeljenjus(ProfesorPredajePredmetOdeljenju entity)
+		{
+			this.SendPropertyChanging();
+			entity.Odeljenje = this;
+		}
+		
+		private void detach_ProfesorPredajePredmetOdeljenjus(ProfesorPredajePredmetOdeljenju entity)
+		{
+			this.SendPropertyChanging();
+			entity.Odeljenje = null;
+		}
+		
+		private void attach_Uceniks(Ucenik entity)
+		{
+			this.SendPropertyChanging();
+			entity.Odeljenje = this;
+		}
+		
+		private void detach_Uceniks(Ucenik entity)
+		{
+			this.SendPropertyChanging();
+			entity.Odeljenje = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Predmet")]
+	public partial class Predmet : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _sifra_predmeta;
+		
+		private string _naziv;
+		
+		private EntitySet<ProfesorPredajePredmetOdeljenju> _ProfesorPredajePredmetOdeljenjus;
+		
+		private EntitySet<RazredImaPredmet> _RazredImaPredmets;
+		
+		private EntitySet<UcenikImaOcenu> _UcenikImaOcenus;
+		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -576,175 +576,175 @@ namespace HCPortal.Models.L2SRepository
     partial void OnnazivChanging(string value);
     partial void OnnazivChanged();
     #endregion
-        
-        public Predmet()
-        {
-            this._ProfesorPredajePredmetOdeljenjus = new EntitySet<ProfesorPredajePredmetOdeljenju>(new Action<ProfesorPredajePredmetOdeljenju>(this.attach_ProfesorPredajePredmetOdeljenjus), new Action<ProfesorPredajePredmetOdeljenju>(this.detach_ProfesorPredajePredmetOdeljenjus));
-            this._RazredImaPredmets = new EntitySet<RazredImaPredmet>(new Action<RazredImaPredmet>(this.attach_RazredImaPredmets), new Action<RazredImaPredmet>(this.detach_RazredImaPredmets));
-            this._UcenikImaOcenus = new EntitySet<UcenikImaOcenu>(new Action<UcenikImaOcenu>(this.attach_UcenikImaOcenus), new Action<UcenikImaOcenu>(this.detach_UcenikImaOcenus));
-            OnCreated();
-        }
-        
-        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sifra_predmeta", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-        public int sifra_predmeta
-        {
-            get
-            {
-                return this._sifra_predmeta;
-            }
-            set
-            {
-                if ((this._sifra_predmeta != value))
-                {
-                    this.Onsifra_predmetaChanging(value);
-                    this.SendPropertyChanging();
-                    this._sifra_predmeta = value;
-                    this.SendPropertyChanged("sifra_predmeta");
-                    this.Onsifra_predmetaChanged();
-                }
-            }
-        }
-        
-        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_naziv", DbType="NVarChar(60)")]
-        public string naziv
-        {
-            get
-            {
-                return this._naziv;
-            }
-            set
-            {
-                if ((this._naziv != value))
-                {
-                    this.OnnazivChanging(value);
-                    this.SendPropertyChanging();
-                    this._naziv = value;
-                    this.SendPropertyChanged("naziv");
-                    this.OnnazivChanged();
-                }
-            }
-        }
-        
-        [global::System.Data.Linq.Mapping.AssociationAttribute(Name="Predmet_ProfesorPredajePredmetOdeljenju", Storage="_ProfesorPredajePredmetOdeljenjus", ThisKey="sifra_predmeta", OtherKey="sifra_predmeta")]
-        public EntitySet<ProfesorPredajePredmetOdeljenju> ProfesorPredajePredmetOdeljenjus
-        {
-            get
-            {
-                return this._ProfesorPredajePredmetOdeljenjus;
-            }
-            set
-            {
-                this._ProfesorPredajePredmetOdeljenjus.Assign(value);
-            }
-        }
-        
-        [global::System.Data.Linq.Mapping.AssociationAttribute(Name="Predmet_RazredImaPredmet", Storage="_RazredImaPredmets", ThisKey="sifra_predmeta", OtherKey="sifra_predmeta")]
-        public EntitySet<RazredImaPredmet> RazredImaPredmets
-        {
-            get
-            {
-                return this._RazredImaPredmets;
-            }
-            set
-            {
-                this._RazredImaPredmets.Assign(value);
-            }
-        }
-        
-        [global::System.Data.Linq.Mapping.AssociationAttribute(Name="Predmet_UcenikImaOcenu", Storage="_UcenikImaOcenus", ThisKey="sifra_predmeta", OtherKey="sifra_predmeta")]
-        public EntitySet<UcenikImaOcenu> UcenikImaOcenus
-        {
-            get
-            {
-                return this._UcenikImaOcenus;
-            }
-            set
-            {
-                this._UcenikImaOcenus.Assign(value);
-            }
-        }
-        
-        public event PropertyChangingEventHandler PropertyChanging;
-        
-        public event PropertyChangedEventHandler PropertyChanged;
-        
-        protected virtual void SendPropertyChanging()
-        {
-            if ((this.PropertyChanging != null))
-            {
-                this.PropertyChanging(this, emptyChangingEventArgs);
-            }
-        }
-        
-        protected virtual void SendPropertyChanged(String propertyName)
-        {
-            if ((this.PropertyChanged != null))
-            {
-                this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-            }
-        }
-        
-        private void attach_ProfesorPredajePredmetOdeljenjus(ProfesorPredajePredmetOdeljenju entity)
-        {
-            this.SendPropertyChanging();
-            entity.Predmet = this;
-        }
-        
-        private void detach_ProfesorPredajePredmetOdeljenjus(ProfesorPredajePredmetOdeljenju entity)
-        {
-            this.SendPropertyChanging();
-            entity.Predmet = null;
-        }
-        
-        private void attach_RazredImaPredmets(RazredImaPredmet entity)
-        {
-            this.SendPropertyChanging();
-            entity.Predmet = this;
-        }
-        
-        private void detach_RazredImaPredmets(RazredImaPredmet entity)
-        {
-            this.SendPropertyChanging();
-            entity.Predmet = null;
-        }
-        
-        private void attach_UcenikImaOcenus(UcenikImaOcenu entity)
-        {
-            this.SendPropertyChanging();
-            entity.Predmet = this;
-        }
-        
-        private void detach_UcenikImaOcenus(UcenikImaOcenu entity)
-        {
-            this.SendPropertyChanging();
-            entity.Predmet = null;
-        }
-    }
-    
-    [global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Profesor")]
-    public partial class Profesor : INotifyPropertyChanging, INotifyPropertyChanged
-    {
-        
-        private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-        
-        private int _sifra_profesora;
-        
-        private string _ime;
-        
-        private string _prezime;
-        
-        private string _korisnicko_ime;
-        
-        private string _sifra;
-        
-        private string _datum_rodjenja;
-        
-        private string _mesto_stanovanja;
-        
-        private string _jmbg;
-        
-        private EntitySet<ProfesorPredajePredmetOdeljenju> _ProfesorPredajePredmetOdeljenjus;
-        
+		
+		public Predmet()
+		{
+			this._ProfesorPredajePredmetOdeljenjus = new EntitySet<ProfesorPredajePredmetOdeljenju>(new Action<ProfesorPredajePredmetOdeljenju>(this.attach_ProfesorPredajePredmetOdeljenjus), new Action<ProfesorPredajePredmetOdeljenju>(this.detach_ProfesorPredajePredmetOdeljenjus));
+			this._RazredImaPredmets = new EntitySet<RazredImaPredmet>(new Action<RazredImaPredmet>(this.attach_RazredImaPredmets), new Action<RazredImaPredmet>(this.detach_RazredImaPredmets));
+			this._UcenikImaOcenus = new EntitySet<UcenikImaOcenu>(new Action<UcenikImaOcenu>(this.attach_UcenikImaOcenus), new Action<UcenikImaOcenu>(this.detach_UcenikImaOcenus));
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sifra_predmeta", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int sifra_predmeta
+		{
+			get
+			{
+				return this._sifra_predmeta;
+			}
+			set
+			{
+				if ((this._sifra_predmeta != value))
+				{
+					this.Onsifra_predmetaChanging(value);
+					this.SendPropertyChanging();
+					this._sifra_predmeta = value;
+					this.SendPropertyChanged("sifra_predmeta");
+					this.Onsifra_predmetaChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_naziv", DbType="NVarChar(60)")]
+		public string naziv
+		{
+			get
+			{
+				return this._naziv;
+			}
+			set
+			{
+				if ((this._naziv != value))
+				{
+					this.OnnazivChanging(value);
+					this.SendPropertyChanging();
+					this._naziv = value;
+					this.SendPropertyChanged("naziv");
+					this.OnnazivChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Predmet_ProfesorPredajePredmetOdeljenju", Storage="_ProfesorPredajePredmetOdeljenjus", ThisKey="sifra_predmeta", OtherKey="sifra_predmeta")]
+		public EntitySet<ProfesorPredajePredmetOdeljenju> ProfesorPredajePredmetOdeljenjus
+		{
+			get
+			{
+				return this._ProfesorPredajePredmetOdeljenjus;
+			}
+			set
+			{
+				this._ProfesorPredajePredmetOdeljenjus.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Predmet_RazredImaPredmet", Storage="_RazredImaPredmets", ThisKey="sifra_predmeta", OtherKey="sifra_predmeta")]
+		public EntitySet<RazredImaPredmet> RazredImaPredmets
+		{
+			get
+			{
+				return this._RazredImaPredmets;
+			}
+			set
+			{
+				this._RazredImaPredmets.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Predmet_UcenikImaOcenu", Storage="_UcenikImaOcenus", ThisKey="sifra_predmeta", OtherKey="sifra_predmeta")]
+		public EntitySet<UcenikImaOcenu> UcenikImaOcenus
+		{
+			get
+			{
+				return this._UcenikImaOcenus;
+			}
+			set
+			{
+				this._UcenikImaOcenus.Assign(value);
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_ProfesorPredajePredmetOdeljenjus(ProfesorPredajePredmetOdeljenju entity)
+		{
+			this.SendPropertyChanging();
+			entity.Predmet = this;
+		}
+		
+		private void detach_ProfesorPredajePredmetOdeljenjus(ProfesorPredajePredmetOdeljenju entity)
+		{
+			this.SendPropertyChanging();
+			entity.Predmet = null;
+		}
+		
+		private void attach_RazredImaPredmets(RazredImaPredmet entity)
+		{
+			this.SendPropertyChanging();
+			entity.Predmet = this;
+		}
+		
+		private void detach_RazredImaPredmets(RazredImaPredmet entity)
+		{
+			this.SendPropertyChanging();
+			entity.Predmet = null;
+		}
+		
+		private void attach_UcenikImaOcenus(UcenikImaOcenu entity)
+		{
+			this.SendPropertyChanging();
+			entity.Predmet = this;
+		}
+		
+		private void detach_UcenikImaOcenus(UcenikImaOcenu entity)
+		{
+			this.SendPropertyChanging();
+			entity.Predmet = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Profesor")]
+	public partial class Profesor : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _sifra_profesora;
+		
+		private string _ime;
+		
+		private string _prezime;
+		
+		private string _korisnicko_ime;
+		
+		private string _sifra;
+		
+		private string _datum_rodjenja;
+		
+		private string _mesto_stanovanja;
+		
+		private string _jmbg;
+		
+		private EntitySet<ProfesorPredajePredmetOdeljenju> _ProfesorPredajePredmetOdeljenjus;
+		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -766,237 +766,237 @@ namespace HCPortal.Models.L2SRepository
     partial void OnjmbgChanging(string value);
     partial void OnjmbgChanged();
     #endregion
-        
-        public Profesor()
-        {
-            this._ProfesorPredajePredmetOdeljenjus = new EntitySet<ProfesorPredajePredmetOdeljenju>(new Action<ProfesorPredajePredmetOdeljenju>(this.attach_ProfesorPredajePredmetOdeljenjus), new Action<ProfesorPredajePredmetOdeljenju>(this.detach_ProfesorPredajePredmetOdeljenjus));
-            OnCreated();
-        }
-        
-        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sifra_profesora", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-        public int sifra_profesora
-        {
-            get
-            {
-                return this._sifra_profesora;
-            }
-            set
-            {
-                if ((this._sifra_profesora != value))
-                {
-                    this.Onsifra_profesoraChanging(value);
-                    this.SendPropertyChanging();
-                    this._sifra_profesora = value;
-                    this.SendPropertyChanged("sifra_profesora");
-                    this.Onsifra_profesoraChanged();
-                }
-            }
-        }
-        
-        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ime", DbType="NVarChar(60)")]
-        public string ime
-        {
-            get
-            {
-                return this._ime;
-            }
-            set
-            {
-                if ((this._ime != value))
-                {
-                    this.OnimeChanging(value);
-                    this.SendPropertyChanging();
-                    this._ime = value;
-                    this.SendPropertyChanged("ime");
-                    this.OnimeChanged();
-                }
-            }
-        }
-        
-        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_prezime", DbType="NVarChar(60)")]
-        public string prezime
-        {
-            get
-            {
-                return this._prezime;
-            }
-            set
-            {
-                if ((this._prezime != value))
-                {
-                    this.OnprezimeChanging(value);
-                    this.SendPropertyChanging();
-                    this._prezime = value;
-                    this.SendPropertyChanged("prezime");
-                    this.OnprezimeChanged();
-                }
-            }
-        }
-        
-        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_korisnicko_ime", DbType="NVarChar(60)")]
-        public string korisnicko_ime
-        {
-            get
-            {
-                return this._korisnicko_ime;
-            }
-            set
-            {
-                if ((this._korisnicko_ime != value))
-                {
-                    this.Onkorisnicko_imeChanging(value);
-                    this.SendPropertyChanging();
-                    this._korisnicko_ime = value;
-                    this.SendPropertyChanged("korisnicko_ime");
-                    this.Onkorisnicko_imeChanged();
-                }
-            }
-        }
-        
-        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sifra", DbType="NVarChar(250)")]
-        public string sifra
-        {
-            get
-            {
-                return this._sifra;
-            }
-            set
-            {
-                if ((this._sifra != value))
-                {
-                    this.OnsifraChanging(value);
-                    this.SendPropertyChanging();
-                    this._sifra = value;
-                    this.SendPropertyChanged("sifra");
-                    this.OnsifraChanged();
-                }
-            }
-        }
-        
-        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_datum_rodjenja", DbType="NVarChar(60)")]
-        public string datum_rodjenja
-        {
-            get
-            {
-                return this._datum_rodjenja;
-            }
-            set
-            {
-                if ((this._datum_rodjenja != value))
-                {
-                    this.Ondatum_rodjenjaChanging(value);
-                    this.SendPropertyChanging();
-                    this._datum_rodjenja = value;
-                    this.SendPropertyChanged("datum_rodjenja");
-                    this.Ondatum_rodjenjaChanged();
-                }
-            }
-        }
-        
-        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_mesto_stanovanja", DbType="NVarChar(60)")]
-        public string mesto_stanovanja
-        {
-            get
-            {
-                return this._mesto_stanovanja;
-            }
-            set
-            {
-                if ((this._mesto_stanovanja != value))
-                {
-                    this.Onmesto_stanovanjaChanging(value);
-                    this.SendPropertyChanging();
-                    this._mesto_stanovanja = value;
-                    this.SendPropertyChanged("mesto_stanovanja");
-                    this.Onmesto_stanovanjaChanged();
-                }
-            }
-        }
-        
-        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_jmbg", DbType="NVarChar(60)")]
-        public string jmbg
-        {
-            get
-            {
-                return this._jmbg;
-            }
-            set
-            {
-                if ((this._jmbg != value))
-                {
-                    this.OnjmbgChanging(value);
-                    this.SendPropertyChanging();
-                    this._jmbg = value;
-                    this.SendPropertyChanged("jmbg");
-                    this.OnjmbgChanged();
-                }
-            }
-        }
-        
-        [global::System.Data.Linq.Mapping.AssociationAttribute(Name="Profesor_ProfesorPredajePredmetOdeljenju", Storage="_ProfesorPredajePredmetOdeljenjus", ThisKey="sifra_profesora", OtherKey="sifra_profesora")]
-        public EntitySet<ProfesorPredajePredmetOdeljenju> ProfesorPredajePredmetOdeljenjus
-        {
-            get
-            {
-                return this._ProfesorPredajePredmetOdeljenjus;
-            }
-            set
-            {
-                this._ProfesorPredajePredmetOdeljenjus.Assign(value);
-            }
-        }
-        
-        public event PropertyChangingEventHandler PropertyChanging;
-        
-        public event PropertyChangedEventHandler PropertyChanged;
-        
-        protected virtual void SendPropertyChanging()
-        {
-            if ((this.PropertyChanging != null))
-            {
-                this.PropertyChanging(this, emptyChangingEventArgs);
-            }
-        }
-        
-        protected virtual void SendPropertyChanged(String propertyName)
-        {
-            if ((this.PropertyChanged != null))
-            {
-                this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-            }
-        }
-        
-        private void attach_ProfesorPredajePredmetOdeljenjus(ProfesorPredajePredmetOdeljenju entity)
-        {
-            this.SendPropertyChanging();
-            entity.Profesor = this;
-        }
-        
-        private void detach_ProfesorPredajePredmetOdeljenjus(ProfesorPredajePredmetOdeljenju entity)
-        {
-            this.SendPropertyChanging();
-            entity.Profesor = null;
-        }
-    }
-    
-    [global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.ProfesorPredajePredmetOdeljenju")]
-    public partial class ProfesorPredajePredmetOdeljenju : INotifyPropertyChanging, INotifyPropertyChanged
-    {
-        
-        private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-        
-        private int _sifra_profesora;
-        
-        private int _sifra_predmeta;
-        
-        private int _sifra_odeljenja;
-        
-        private EntityRef<Profesor> _Profesor;
-        
-        private EntityRef<Predmet> _Predmet;
-        
-        private EntityRef<Odeljenje> _Odeljenje;
-        
+		
+		public Profesor()
+		{
+			this._ProfesorPredajePredmetOdeljenjus = new EntitySet<ProfesorPredajePredmetOdeljenju>(new Action<ProfesorPredajePredmetOdeljenju>(this.attach_ProfesorPredajePredmetOdeljenjus), new Action<ProfesorPredajePredmetOdeljenju>(this.detach_ProfesorPredajePredmetOdeljenjus));
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sifra_profesora", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int sifra_profesora
+		{
+			get
+			{
+				return this._sifra_profesora;
+			}
+			set
+			{
+				if ((this._sifra_profesora != value))
+				{
+					this.Onsifra_profesoraChanging(value);
+					this.SendPropertyChanging();
+					this._sifra_profesora = value;
+					this.SendPropertyChanged("sifra_profesora");
+					this.Onsifra_profesoraChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ime", DbType="NVarChar(60)")]
+		public string ime
+		{
+			get
+			{
+				return this._ime;
+			}
+			set
+			{
+				if ((this._ime != value))
+				{
+					this.OnimeChanging(value);
+					this.SendPropertyChanging();
+					this._ime = value;
+					this.SendPropertyChanged("ime");
+					this.OnimeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_prezime", DbType="NVarChar(60)")]
+		public string prezime
+		{
+			get
+			{
+				return this._prezime;
+			}
+			set
+			{
+				if ((this._prezime != value))
+				{
+					this.OnprezimeChanging(value);
+					this.SendPropertyChanging();
+					this._prezime = value;
+					this.SendPropertyChanged("prezime");
+					this.OnprezimeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_korisnicko_ime", DbType="NVarChar(60)")]
+		public string korisnicko_ime
+		{
+			get
+			{
+				return this._korisnicko_ime;
+			}
+			set
+			{
+				if ((this._korisnicko_ime != value))
+				{
+					this.Onkorisnicko_imeChanging(value);
+					this.SendPropertyChanging();
+					this._korisnicko_ime = value;
+					this.SendPropertyChanged("korisnicko_ime");
+					this.Onkorisnicko_imeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sifra", DbType="NVarChar(250)")]
+		public string sifra
+		{
+			get
+			{
+				return this._sifra;
+			}
+			set
+			{
+				if ((this._sifra != value))
+				{
+					this.OnsifraChanging(value);
+					this.SendPropertyChanging();
+					this._sifra = value;
+					this.SendPropertyChanged("sifra");
+					this.OnsifraChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_datum_rodjenja", DbType="NVarChar(60)")]
+		public string datum_rodjenja
+		{
+			get
+			{
+				return this._datum_rodjenja;
+			}
+			set
+			{
+				if ((this._datum_rodjenja != value))
+				{
+					this.Ondatum_rodjenjaChanging(value);
+					this.SendPropertyChanging();
+					this._datum_rodjenja = value;
+					this.SendPropertyChanged("datum_rodjenja");
+					this.Ondatum_rodjenjaChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_mesto_stanovanja", DbType="NVarChar(60)")]
+		public string mesto_stanovanja
+		{
+			get
+			{
+				return this._mesto_stanovanja;
+			}
+			set
+			{
+				if ((this._mesto_stanovanja != value))
+				{
+					this.Onmesto_stanovanjaChanging(value);
+					this.SendPropertyChanging();
+					this._mesto_stanovanja = value;
+					this.SendPropertyChanged("mesto_stanovanja");
+					this.Onmesto_stanovanjaChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_jmbg", DbType="NVarChar(60)")]
+		public string jmbg
+		{
+			get
+			{
+				return this._jmbg;
+			}
+			set
+			{
+				if ((this._jmbg != value))
+				{
+					this.OnjmbgChanging(value);
+					this.SendPropertyChanging();
+					this._jmbg = value;
+					this.SendPropertyChanged("jmbg");
+					this.OnjmbgChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Profesor_ProfesorPredajePredmetOdeljenju", Storage="_ProfesorPredajePredmetOdeljenjus", ThisKey="sifra_profesora", OtherKey="sifra_profesora")]
+		public EntitySet<ProfesorPredajePredmetOdeljenju> ProfesorPredajePredmetOdeljenjus
+		{
+			get
+			{
+				return this._ProfesorPredajePredmetOdeljenjus;
+			}
+			set
+			{
+				this._ProfesorPredajePredmetOdeljenjus.Assign(value);
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_ProfesorPredajePredmetOdeljenjus(ProfesorPredajePredmetOdeljenju entity)
+		{
+			this.SendPropertyChanging();
+			entity.Profesor = this;
+		}
+		
+		private void detach_ProfesorPredajePredmetOdeljenjus(ProfesorPredajePredmetOdeljenju entity)
+		{
+			this.SendPropertyChanging();
+			entity.Profesor = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.ProfesorPredajePredmetOdeljenju")]
+	public partial class ProfesorPredajePredmetOdeljenju : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _sifra_profesora;
+		
+		private int _sifra_predmeta;
+		
+		private int _sifra_odeljenja;
+		
+		private EntityRef<Profesor> _Profesor;
+		
+		private EntityRef<Predmet> _Predmet;
+		
+		private EntityRef<Odeljenje> _Odeljenje;
+		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -1008,244 +1008,578 @@ namespace HCPortal.Models.L2SRepository
     partial void Onsifra_odeljenjaChanging(int value);
     partial void Onsifra_odeljenjaChanged();
     #endregion
-        
-        public ProfesorPredajePredmetOdeljenju()
-        {
-            this._Profesor = default(EntityRef<Profesor>);
-            this._Predmet = default(EntityRef<Predmet>);
-            this._Odeljenje = default(EntityRef<Odeljenje>);
-            OnCreated();
-        }
-        
-        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sifra_profesora", DbType="Int NOT NULL", IsPrimaryKey=true)]
-        public int sifra_profesora
-        {
-            get
-            {
-                return this._sifra_profesora;
-            }
-            set
-            {
-                if ((this._sifra_profesora != value))
-                {
-                    if (this._Profesor.HasLoadedOrAssignedValue)
-                    {
-                        throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-                    }
-                    this.Onsifra_profesoraChanging(value);
-                    this.SendPropertyChanging();
-                    this._sifra_profesora = value;
-                    this.SendPropertyChanged("sifra_profesora");
-                    this.Onsifra_profesoraChanged();
-                }
-            }
-        }
-        
-        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sifra_predmeta", DbType="Int NOT NULL", IsPrimaryKey=true)]
-        public int sifra_predmeta
-        {
-            get
-            {
-                return this._sifra_predmeta;
-            }
-            set
-            {
-                if ((this._sifra_predmeta != value))
-                {
-                    if (this._Predmet.HasLoadedOrAssignedValue)
-                    {
-                        throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-                    }
-                    this.Onsifra_predmetaChanging(value);
-                    this.SendPropertyChanging();
-                    this._sifra_predmeta = value;
-                    this.SendPropertyChanged("sifra_predmeta");
-                    this.Onsifra_predmetaChanged();
-                }
-            }
-        }
-        
-        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sifra_odeljenja", DbType="Int NOT NULL", IsPrimaryKey=true)]
-        public int sifra_odeljenja
-        {
-            get
-            {
-                return this._sifra_odeljenja;
-            }
-            set
-            {
-                if ((this._sifra_odeljenja != value))
-                {
-                    if (this._Odeljenje.HasLoadedOrAssignedValue)
-                    {
-                        throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-                    }
-                    this.Onsifra_odeljenjaChanging(value);
-                    this.SendPropertyChanging();
-                    this._sifra_odeljenja = value;
-                    this.SendPropertyChanged("sifra_odeljenja");
-                    this.Onsifra_odeljenjaChanged();
-                }
-            }
-        }
-        
-        [global::System.Data.Linq.Mapping.AssociationAttribute(Name="Profesor_ProfesorPredajePredmetOdeljenju", Storage="_Profesor", ThisKey="sifra_profesora", OtherKey="sifra_profesora", IsForeignKey=true)]
-        public Profesor Profesor
-        {
-            get
-            {
-                return this._Profesor.Entity;
-            }
-            set
-            {
-                Profesor previousValue = this._Profesor.Entity;
-                if (((previousValue != value) 
-                            || (this._Profesor.HasLoadedOrAssignedValue == false)))
-                {
-                    this.SendPropertyChanging();
-                    if ((previousValue != null))
-                    {
-                        this._Profesor.Entity = null;
-                        previousValue.ProfesorPredajePredmetOdeljenjus.Remove(this);
-                    }
-                    this._Profesor.Entity = value;
-                    if ((value != null))
-                    {
-                        value.ProfesorPredajePredmetOdeljenjus.Add(this);
-                        this._sifra_profesora = value.sifra_profesora;
-                    }
-                    else
-                    {
-                        this._sifra_profesora = default(int);
-                    }
-                    this.SendPropertyChanged("Profesor");
-                }
-            }
-        }
-        
-        [global::System.Data.Linq.Mapping.AssociationAttribute(Name="Predmet_ProfesorPredajePredmetOdeljenju", Storage="_Predmet", ThisKey="sifra_predmeta", OtherKey="sifra_predmeta", IsForeignKey=true)]
-        public Predmet Predmet
-        {
-            get
-            {
-                return this._Predmet.Entity;
-            }
-            set
-            {
-                Predmet previousValue = this._Predmet.Entity;
-                if (((previousValue != value) 
-                            || (this._Predmet.HasLoadedOrAssignedValue == false)))
-                {
-                    this.SendPropertyChanging();
-                    if ((previousValue != null))
-                    {
-                        this._Predmet.Entity = null;
-                        previousValue.ProfesorPredajePredmetOdeljenjus.Remove(this);
-                    }
-                    this._Predmet.Entity = value;
-                    if ((value != null))
-                    {
-                        value.ProfesorPredajePredmetOdeljenjus.Add(this);
-                        this._sifra_predmeta = value.sifra_predmeta;
-                    }
-                    else
-                    {
-                        this._sifra_predmeta = default(int);
-                    }
-                    this.SendPropertyChanged("Predmet");
-                }
-            }
-        }
-        
-        [global::System.Data.Linq.Mapping.AssociationAttribute(Name="Odeljenje_ProfesorPredajePredmetOdeljenju", Storage="_Odeljenje", ThisKey="sifra_odeljenja", OtherKey="sifra_odeljenja", IsForeignKey=true)]
-        public Odeljenje Odeljenje
-        {
-            get
-            {
-                return this._Odeljenje.Entity;
-            }
-            set
-            {
-                Odeljenje previousValue = this._Odeljenje.Entity;
-                if (((previousValue != value) 
-                            || (this._Odeljenje.HasLoadedOrAssignedValue == false)))
-                {
-                    this.SendPropertyChanging();
-                    if ((previousValue != null))
-                    {
-                        this._Odeljenje.Entity = null;
-                        previousValue.ProfesorPredajePredmetOdeljenjus.Remove(this);
-                    }
-                    this._Odeljenje.Entity = value;
-                    if ((value != null))
-                    {
-                        value.ProfesorPredajePredmetOdeljenjus.Add(this);
-                        this._sifra_odeljenja = value.sifra_odeljenja;
-                    }
-                    else
-                    {
-                        this._sifra_odeljenja = default(int);
-                    }
-                    this.SendPropertyChanged("Odeljenje");
-                }
-            }
-        }
-        
-        public event PropertyChangingEventHandler PropertyChanging;
-        
-        public event PropertyChangedEventHandler PropertyChanged;
-        
-        protected virtual void SendPropertyChanging()
-        {
-            if ((this.PropertyChanging != null))
-            {
-                this.PropertyChanging(this, emptyChangingEventArgs);
-            }
-        }
-        
-        protected virtual void SendPropertyChanged(String propertyName)
-        {
-            if ((this.PropertyChanged != null))
-            {
-                this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Ucenik")]
-    public partial class Ucenik : INotifyPropertyChanging, INotifyPropertyChanged
-    {
-        
-        private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-        
-        private int _sifra_ucenika;
-        
-        private string _ime;
-        
-        private string _prezime;
-        
-        private string _korisnicko_ime;
-        
-        private string _sifra;
-        
-        private string _datum_rodjenja;
-        
-        private string _mesto_stanovanja;
-        
-        private string _jmbg;
-        
-        private string _ime_staratelja;
-        
-        private string _prezime_staratelja;
-        
-        private string _kontakt_telefon;
-        
-        private int _sifra_odeljenja;
-        
-        private EntitySet<UcenikImaOcenu> _UcenikImaOcenus;
-        
-        private EntityRef<Odeljenje> _Odeljenje;
-        
+		
+		public ProfesorPredajePredmetOdeljenju()
+		{
+			this._Profesor = default(EntityRef<Profesor>);
+			this._Predmet = default(EntityRef<Predmet>);
+			this._Odeljenje = default(EntityRef<Odeljenje>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sifra_profesora", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		public int sifra_profesora
+		{
+			get
+			{
+				return this._sifra_profesora;
+			}
+			set
+			{
+				if ((this._sifra_profesora != value))
+				{
+					if (this._Profesor.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.Onsifra_profesoraChanging(value);
+					this.SendPropertyChanging();
+					this._sifra_profesora = value;
+					this.SendPropertyChanged("sifra_profesora");
+					this.Onsifra_profesoraChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sifra_predmeta", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		public int sifra_predmeta
+		{
+			get
+			{
+				return this._sifra_predmeta;
+			}
+			set
+			{
+				if ((this._sifra_predmeta != value))
+				{
+					if (this._Predmet.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.Onsifra_predmetaChanging(value);
+					this.SendPropertyChanging();
+					this._sifra_predmeta = value;
+					this.SendPropertyChanged("sifra_predmeta");
+					this.Onsifra_predmetaChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sifra_odeljenja", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		public int sifra_odeljenja
+		{
+			get
+			{
+				return this._sifra_odeljenja;
+			}
+			set
+			{
+				if ((this._sifra_odeljenja != value))
+				{
+					if (this._Odeljenje.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.Onsifra_odeljenjaChanging(value);
+					this.SendPropertyChanging();
+					this._sifra_odeljenja = value;
+					this.SendPropertyChanged("sifra_odeljenja");
+					this.Onsifra_odeljenjaChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Profesor_ProfesorPredajePredmetOdeljenju", Storage="_Profesor", ThisKey="sifra_profesora", OtherKey="sifra_profesora", IsForeignKey=true)]
+		public Profesor Profesor
+		{
+			get
+			{
+				return this._Profesor.Entity;
+			}
+			set
+			{
+				Profesor previousValue = this._Profesor.Entity;
+				if (((previousValue != value) 
+							|| (this._Profesor.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Profesor.Entity = null;
+						previousValue.ProfesorPredajePredmetOdeljenjus.Remove(this);
+					}
+					this._Profesor.Entity = value;
+					if ((value != null))
+					{
+						value.ProfesorPredajePredmetOdeljenjus.Add(this);
+						this._sifra_profesora = value.sifra_profesora;
+					}
+					else
+					{
+						this._sifra_profesora = default(int);
+					}
+					this.SendPropertyChanged("Profesor");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Predmet_ProfesorPredajePredmetOdeljenju", Storage="_Predmet", ThisKey="sifra_predmeta", OtherKey="sifra_predmeta", IsForeignKey=true)]
+		public Predmet Predmet
+		{
+			get
+			{
+				return this._Predmet.Entity;
+			}
+			set
+			{
+				Predmet previousValue = this._Predmet.Entity;
+				if (((previousValue != value) 
+							|| (this._Predmet.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Predmet.Entity = null;
+						previousValue.ProfesorPredajePredmetOdeljenjus.Remove(this);
+					}
+					this._Predmet.Entity = value;
+					if ((value != null))
+					{
+						value.ProfesorPredajePredmetOdeljenjus.Add(this);
+						this._sifra_predmeta = value.sifra_predmeta;
+					}
+					else
+					{
+						this._sifra_predmeta = default(int);
+					}
+					this.SendPropertyChanged("Predmet");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Odeljenje_ProfesorPredajePredmetOdeljenju", Storage="_Odeljenje", ThisKey="sifra_odeljenja", OtherKey="sifra_odeljenja", IsForeignKey=true)]
+		public Odeljenje Odeljenje
+		{
+			get
+			{
+				return this._Odeljenje.Entity;
+			}
+			set
+			{
+				Odeljenje previousValue = this._Odeljenje.Entity;
+				if (((previousValue != value) 
+							|| (this._Odeljenje.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Odeljenje.Entity = null;
+						previousValue.ProfesorPredajePredmetOdeljenjus.Remove(this);
+					}
+					this._Odeljenje.Entity = value;
+					if ((value != null))
+					{
+						value.ProfesorPredajePredmetOdeljenjus.Add(this);
+						this._sifra_odeljenja = value.sifra_odeljenja;
+					}
+					else
+					{
+						this._sifra_odeljenja = default(int);
+					}
+					this.SendPropertyChanged("Odeljenje");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Razred")]
+	public partial class Razred : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _sifra_razreda;
+		
+		private string _naziv;
+		
+		private EntitySet<Odeljenje> _Odeljenjes;
+		
+		private EntitySet<RazredImaPredmet> _RazredImaPredmets;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void Onsifra_razredaChanging(int value);
+    partial void Onsifra_razredaChanged();
+    partial void OnnazivChanging(string value);
+    partial void OnnazivChanged();
+    #endregion
+		
+		public Razred()
+		{
+			this._Odeljenjes = new EntitySet<Odeljenje>(new Action<Odeljenje>(this.attach_Odeljenjes), new Action<Odeljenje>(this.detach_Odeljenjes));
+			this._RazredImaPredmets = new EntitySet<RazredImaPredmet>(new Action<RazredImaPredmet>(this.attach_RazredImaPredmets), new Action<RazredImaPredmet>(this.detach_RazredImaPredmets));
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sifra_razreda", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int sifra_razreda
+		{
+			get
+			{
+				return this._sifra_razreda;
+			}
+			set
+			{
+				if ((this._sifra_razreda != value))
+				{
+					this.Onsifra_razredaChanging(value);
+					this.SendPropertyChanging();
+					this._sifra_razreda = value;
+					this.SendPropertyChanged("sifra_razreda");
+					this.Onsifra_razredaChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_naziv", DbType="NVarChar(60)")]
+		public string naziv
+		{
+			get
+			{
+				return this._naziv;
+			}
+			set
+			{
+				if ((this._naziv != value))
+				{
+					this.OnnazivChanging(value);
+					this.SendPropertyChanging();
+					this._naziv = value;
+					this.SendPropertyChanged("naziv");
+					this.OnnazivChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Razred_Odeljenje", Storage="_Odeljenjes", ThisKey="sifra_razreda", OtherKey="sifra_razreda")]
+		public EntitySet<Odeljenje> Odeljenjes
+		{
+			get
+			{
+				return this._Odeljenjes;
+			}
+			set
+			{
+				this._Odeljenjes.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Razred_RazredImaPredmet", Storage="_RazredImaPredmets", ThisKey="sifra_razreda", OtherKey="sifra_razreda")]
+		public EntitySet<RazredImaPredmet> RazredImaPredmets
+		{
+			get
+			{
+				return this._RazredImaPredmets;
+			}
+			set
+			{
+				this._RazredImaPredmets.Assign(value);
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_Odeljenjes(Odeljenje entity)
+		{
+			this.SendPropertyChanging();
+			entity.Razred = this;
+		}
+		
+		private void detach_Odeljenjes(Odeljenje entity)
+		{
+			this.SendPropertyChanging();
+			entity.Razred = null;
+		}
+		
+		private void attach_RazredImaPredmets(RazredImaPredmet entity)
+		{
+			this.SendPropertyChanging();
+			entity.Razred = this;
+		}
+		
+		private void detach_RazredImaPredmets(RazredImaPredmet entity)
+		{
+			this.SendPropertyChanging();
+			entity.Razred = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.RazredImaPredmet")]
+	public partial class RazredImaPredmet : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _sifra_dodele;
+		
+		private int _sifra_predmeta;
+		
+		private int _sifra_razreda;
+		
+		private EntityRef<Predmet> _Predmet;
+		
+		private EntityRef<Razred> _Razred;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void Onsifra_dodeleChanging(int value);
+    partial void Onsifra_dodeleChanged();
+    partial void Onsifra_predmetaChanging(int value);
+    partial void Onsifra_predmetaChanged();
+    partial void Onsifra_razredaChanging(int value);
+    partial void Onsifra_razredaChanged();
+    #endregion
+		
+		public RazredImaPredmet()
+		{
+			this._Predmet = default(EntityRef<Predmet>);
+			this._Razred = default(EntityRef<Razred>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sifra_dodele", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int sifra_dodele
+		{
+			get
+			{
+				return this._sifra_dodele;
+			}
+			set
+			{
+				if ((this._sifra_dodele != value))
+				{
+					this.Onsifra_dodeleChanging(value);
+					this.SendPropertyChanging();
+					this._sifra_dodele = value;
+					this.SendPropertyChanged("sifra_dodele");
+					this.Onsifra_dodeleChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sifra_predmeta", DbType="Int NOT NULL")]
+		public int sifra_predmeta
+		{
+			get
+			{
+				return this._sifra_predmeta;
+			}
+			set
+			{
+				if ((this._sifra_predmeta != value))
+				{
+					if (this._Predmet.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.Onsifra_predmetaChanging(value);
+					this.SendPropertyChanging();
+					this._sifra_predmeta = value;
+					this.SendPropertyChanged("sifra_predmeta");
+					this.Onsifra_predmetaChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sifra_razreda", DbType="Int NOT NULL")]
+		public int sifra_razreda
+		{
+			get
+			{
+				return this._sifra_razreda;
+			}
+			set
+			{
+				if ((this._sifra_razreda != value))
+				{
+					if (this._Razred.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.Onsifra_razredaChanging(value);
+					this.SendPropertyChanging();
+					this._sifra_razreda = value;
+					this.SendPropertyChanged("sifra_razreda");
+					this.Onsifra_razredaChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Predmet_RazredImaPredmet", Storage="_Predmet", ThisKey="sifra_predmeta", OtherKey="sifra_predmeta", IsForeignKey=true)]
+		public Predmet Predmet
+		{
+			get
+			{
+				return this._Predmet.Entity;
+			}
+			set
+			{
+				Predmet previousValue = this._Predmet.Entity;
+				if (((previousValue != value) 
+							|| (this._Predmet.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Predmet.Entity = null;
+						previousValue.RazredImaPredmets.Remove(this);
+					}
+					this._Predmet.Entity = value;
+					if ((value != null))
+					{
+						value.RazredImaPredmets.Add(this);
+						this._sifra_predmeta = value.sifra_predmeta;
+					}
+					else
+					{
+						this._sifra_predmeta = default(int);
+					}
+					this.SendPropertyChanged("Predmet");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Razred_RazredImaPredmet", Storage="_Razred", ThisKey="sifra_razreda", OtherKey="sifra_razreda", IsForeignKey=true)]
+		public Razred Razred
+		{
+			get
+			{
+				return this._Razred.Entity;
+			}
+			set
+			{
+				Razred previousValue = this._Razred.Entity;
+				if (((previousValue != value) 
+							|| (this._Razred.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Razred.Entity = null;
+						previousValue.RazredImaPredmets.Remove(this);
+					}
+					this._Razred.Entity = value;
+					if ((value != null))
+					{
+						value.RazredImaPredmets.Add(this);
+						this._sifra_razreda = value.sifra_razreda;
+					}
+					else
+					{
+						this._sifra_razreda = default(int);
+					}
+					this.SendPropertyChanged("Razred");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Ucenik")]
+	public partial class Ucenik : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _sifra_ucenika;
+		
+		private string _ime;
+		
+		private string _prezime;
+		
+		private string _korisnicko_ime;
+		
+		private string _sifra;
+		
+		private string _datum_rodjenja;
+		
+		private string _mesto_stanovanja;
+		
+		private string _jmbg;
+		
+		private string _ime_staratelja;
+		
+		private string _prezime_staratelja;
+		
+		private string _kontakt_telefon;
+		
+		private int _sifra_odeljenja;
+		
+		private EntitySet<UcenikImaOcenu> _UcenikImaOcenus;
+		
+		private EntityRef<Odeljenje> _Odeljenje;
+		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -1275,696 +1609,362 @@ namespace HCPortal.Models.L2SRepository
     partial void Onsifra_odeljenjaChanging(int value);
     partial void Onsifra_odeljenjaChanged();
     #endregion
-        
-        public Ucenik()
-        {
-            this._UcenikImaOcenus = new EntitySet<UcenikImaOcenu>(new Action<UcenikImaOcenu>(this.attach_UcenikImaOcenus), new Action<UcenikImaOcenu>(this.detach_UcenikImaOcenus));
-            this._Odeljenje = default(EntityRef<Odeljenje>);
-            OnCreated();
-        }
-        
-        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sifra_ucenika", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-        public int sifra_ucenika
-        {
-            get
-            {
-                return this._sifra_ucenika;
-            }
-            set
-            {
-                if ((this._sifra_ucenika != value))
-                {
-                    this.Onsifra_ucenikaChanging(value);
-                    this.SendPropertyChanging();
-                    this._sifra_ucenika = value;
-                    this.SendPropertyChanged("sifra_ucenika");
-                    this.Onsifra_ucenikaChanged();
-                }
-            }
-        }
-        
-        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ime", DbType="NVarChar(60)")]
-        public string ime
-        {
-            get
-            {
-                return this._ime;
-            }
-            set
-            {
-                if ((this._ime != value))
-                {
-                    this.OnimeChanging(value);
-                    this.SendPropertyChanging();
-                    this._ime = value;
-                    this.SendPropertyChanged("ime");
-                    this.OnimeChanged();
-                }
-            }
-        }
-        
-        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_prezime", DbType="NVarChar(60)")]
-        public string prezime
-        {
-            get
-            {
-                return this._prezime;
-            }
-            set
-            {
-                if ((this._prezime != value))
-                {
-                    this.OnprezimeChanging(value);
-                    this.SendPropertyChanging();
-                    this._prezime = value;
-                    this.SendPropertyChanged("prezime");
-                    this.OnprezimeChanged();
-                }
-            }
-        }
-        
-        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_korisnicko_ime", DbType="NVarChar(60)")]
-        public string korisnicko_ime
-        {
-            get
-            {
-                return this._korisnicko_ime;
-            }
-            set
-            {
-                if ((this._korisnicko_ime != value))
-                {
-                    this.Onkorisnicko_imeChanging(value);
-                    this.SendPropertyChanging();
-                    this._korisnicko_ime = value;
-                    this.SendPropertyChanged("korisnicko_ime");
-                    this.Onkorisnicko_imeChanged();
-                }
-            }
-        }
-        
-        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sifra", DbType="NVarChar(250)")]
-        public string sifra
-        {
-            get
-            {
-                return this._sifra;
-            }
-            set
-            {
-                if ((this._sifra != value))
-                {
-                    this.OnsifraChanging(value);
-                    this.SendPropertyChanging();
-                    this._sifra = value;
-                    this.SendPropertyChanged("sifra");
-                    this.OnsifraChanged();
-                }
-            }
-        }
-        
-        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_datum_rodjenja", DbType="NVarChar(60)")]
-        public string datum_rodjenja
-        {
-            get
-            {
-                return this._datum_rodjenja;
-            }
-            set
-            {
-                if ((this._datum_rodjenja != value))
-                {
-                    this.Ondatum_rodjenjaChanging(value);
-                    this.SendPropertyChanging();
-                    this._datum_rodjenja = value;
-                    this.SendPropertyChanged("datum_rodjenja");
-                    this.Ondatum_rodjenjaChanged();
-                }
-            }
-        }
-        
-        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_mesto_stanovanja", DbType="NVarChar(60)")]
-        public string mesto_stanovanja
-        {
-            get
-            {
-                return this._mesto_stanovanja;
-            }
-            set
-            {
-                if ((this._mesto_stanovanja != value))
-                {
-                    this.Onmesto_stanovanjaChanging(value);
-                    this.SendPropertyChanging();
-                    this._mesto_stanovanja = value;
-                    this.SendPropertyChanged("mesto_stanovanja");
-                    this.Onmesto_stanovanjaChanged();
-                }
-            }
-        }
-        
-        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_jmbg", DbType="NVarChar(60)")]
-        public string jmbg
-        {
-            get
-            {
-                return this._jmbg;
-            }
-            set
-            {
-                if ((this._jmbg != value))
-                {
-                    this.OnjmbgChanging(value);
-                    this.SendPropertyChanging();
-                    this._jmbg = value;
-                    this.SendPropertyChanged("jmbg");
-                    this.OnjmbgChanged();
-                }
-            }
-        }
-        
-        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ime_staratelja", DbType="NVarChar(60)")]
-        public string ime_staratelja
-        {
-            get
-            {
-                return this._ime_staratelja;
-            }
-            set
-            {
-                if ((this._ime_staratelja != value))
-                {
-                    this.Onime_starateljaChanging(value);
-                    this.SendPropertyChanging();
-                    this._ime_staratelja = value;
-                    this.SendPropertyChanged("ime_staratelja");
-                    this.Onime_starateljaChanged();
-                }
-            }
-        }
-        
-        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_prezime_staratelja", DbType="NVarChar(60)")]
-        public string prezime_staratelja
-        {
-            get
-            {
-                return this._prezime_staratelja;
-            }
-            set
-            {
-                if ((this._prezime_staratelja != value))
-                {
-                    this.Onprezime_starateljaChanging(value);
-                    this.SendPropertyChanging();
-                    this._prezime_staratelja = value;
-                    this.SendPropertyChanged("prezime_staratelja");
-                    this.Onprezime_starateljaChanged();
-                }
-            }
-        }
-        
-        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_kontakt_telefon", DbType="NVarChar(50)")]
-        public string kontakt_telefon
-        {
-            get
-            {
-                return this._kontakt_telefon;
-            }
-            set
-            {
-                if ((this._kontakt_telefon != value))
-                {
-                    this.Onkontakt_telefonChanging(value);
-                    this.SendPropertyChanging();
-                    this._kontakt_telefon = value;
-                    this.SendPropertyChanged("kontakt_telefon");
-                    this.Onkontakt_telefonChanged();
-                }
-            }
-        }
-        
-        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sifra_odeljenja", DbType="Int NOT NULL")]
-        public int sifra_odeljenja
-        {
-            get
-            {
-                return this._sifra_odeljenja;
-            }
-            set
-            {
-                if ((this._sifra_odeljenja != value))
-                {
-                    if (this._Odeljenje.HasLoadedOrAssignedValue)
-                    {
-                        throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-                    }
-                    this.Onsifra_odeljenjaChanging(value);
-                    this.SendPropertyChanging();
-                    this._sifra_odeljenja = value;
-                    this.SendPropertyChanged("sifra_odeljenja");
-                    this.Onsifra_odeljenjaChanged();
-                }
-            }
-        }
-        
-        [global::System.Data.Linq.Mapping.AssociationAttribute(Name="Ucenik_UcenikImaOcenu", Storage="_UcenikImaOcenus", ThisKey="sifra_ucenika", OtherKey="sifra_ucenika")]
-        public EntitySet<UcenikImaOcenu> UcenikImaOcenus
-        {
-            get
-            {
-                return this._UcenikImaOcenus;
-            }
-            set
-            {
-                this._UcenikImaOcenus.Assign(value);
-            }
-        }
-        
-        [global::System.Data.Linq.Mapping.AssociationAttribute(Name="Odeljenje_Ucenik", Storage="_Odeljenje", ThisKey="sifra_odeljenja", OtherKey="sifra_odeljenja", IsForeignKey=true)]
-        public Odeljenje Odeljenje
-        {
-            get
-            {
-                return this._Odeljenje.Entity;
-            }
-            set
-            {
-                Odeljenje previousValue = this._Odeljenje.Entity;
-                if (((previousValue != value) 
-                            || (this._Odeljenje.HasLoadedOrAssignedValue == false)))
-                {
-                    this.SendPropertyChanging();
-                    if ((previousValue != null))
-                    {
-                        this._Odeljenje.Entity = null;
-                        previousValue.Uceniks.Remove(this);
-                    }
-                    this._Odeljenje.Entity = value;
-                    if ((value != null))
-                    {
-                        value.Uceniks.Add(this);
-                        this._sifra_odeljenja = value.sifra_odeljenja;
-                    }
-                    else
-                    {
-                        this._sifra_odeljenja = default(int);
-                    }
-                    this.SendPropertyChanged("Odeljenje");
-                }
-            }
-        }
-        
-        public event PropertyChangingEventHandler PropertyChanging;
-        
-        public event PropertyChangedEventHandler PropertyChanged;
-        
-        protected virtual void SendPropertyChanging()
-        {
-            if ((this.PropertyChanging != null))
-            {
-                this.PropertyChanging(this, emptyChangingEventArgs);
-            }
-        }
-        
-        protected virtual void SendPropertyChanged(String propertyName)
-        {
-            if ((this.PropertyChanged != null))
-            {
-                this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-            }
-        }
-        
-        private void attach_UcenikImaOcenus(UcenikImaOcenu entity)
-        {
-            this.SendPropertyChanging();
-            entity.Ucenik = this;
-        }
-        
-        private void detach_UcenikImaOcenus(UcenikImaOcenu entity)
-        {
-            this.SendPropertyChanging();
-            entity.Ucenik = null;
-        }
-    }
-    
-    [global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.RazredImaPredmet")]
-    public partial class RazredImaPredmet : INotifyPropertyChanging, INotifyPropertyChanged
-    {
-        
-        private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-        
-        private int _sifra_dodele;
-        
-        private int _sifra_predmeta;
-        
-        private int _sifra_razreda;
-        
-        private EntityRef<Predmet> _Predmet;
-        
-        private EntityRef<Razred> _Razred;
-        
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void Onsifra_dodeleChanging(int value);
-    partial void Onsifra_dodeleChanged();
-    partial void Onsifra_predmetaChanging(int value);
-    partial void Onsifra_predmetaChanged();
-    partial void Onsifra_razredaChanging(int value);
-    partial void Onsifra_razredaChanged();
-    #endregion
-        
-        public RazredImaPredmet()
-        {
-            this._Predmet = default(EntityRef<Predmet>);
-            this._Razred = default(EntityRef<Razred>);
-            OnCreated();
-        }
-        
-        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sifra_dodele", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-        public int sifra_dodele
-        {
-            get
-            {
-                return this._sifra_dodele;
-            }
-            set
-            {
-                if ((this._sifra_dodele != value))
-                {
-                    this.Onsifra_dodeleChanging(value);
-                    this.SendPropertyChanging();
-                    this._sifra_dodele = value;
-                    this.SendPropertyChanged("sifra_dodele");
-                    this.Onsifra_dodeleChanged();
-                }
-            }
-        }
-        
-        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sifra_predmeta", DbType="Int NOT NULL")]
-        public int sifra_predmeta
-        {
-            get
-            {
-                return this._sifra_predmeta;
-            }
-            set
-            {
-                if ((this._sifra_predmeta != value))
-                {
-                    if (this._Predmet.HasLoadedOrAssignedValue)
-                    {
-                        throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-                    }
-                    this.Onsifra_predmetaChanging(value);
-                    this.SendPropertyChanging();
-                    this._sifra_predmeta = value;
-                    this.SendPropertyChanged("sifra_predmeta");
-                    this.Onsifra_predmetaChanged();
-                }
-            }
-        }
-        
-        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sifra_razreda", DbType="Int NOT NULL")]
-        public int sifra_razreda
-        {
-            get
-            {
-                return this._sifra_razreda;
-            }
-            set
-            {
-                if ((this._sifra_razreda != value))
-                {
-                    if (this._Razred.HasLoadedOrAssignedValue)
-                    {
-                        throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-                    }
-                    this.Onsifra_razredaChanging(value);
-                    this.SendPropertyChanging();
-                    this._sifra_razreda = value;
-                    this.SendPropertyChanged("sifra_razreda");
-                    this.Onsifra_razredaChanged();
-                }
-            }
-        }
-        
-        [global::System.Data.Linq.Mapping.AssociationAttribute(Name="Predmet_RazredImaPredmet", Storage="_Predmet", ThisKey="sifra_predmeta", OtherKey="sifra_predmeta", IsForeignKey=true)]
-        public Predmet Predmet
-        {
-            get
-            {
-                return this._Predmet.Entity;
-            }
-            set
-            {
-                Predmet previousValue = this._Predmet.Entity;
-                if (((previousValue != value) 
-                            || (this._Predmet.HasLoadedOrAssignedValue == false)))
-                {
-                    this.SendPropertyChanging();
-                    if ((previousValue != null))
-                    {
-                        this._Predmet.Entity = null;
-                        previousValue.RazredImaPredmets.Remove(this);
-                    }
-                    this._Predmet.Entity = value;
-                    if ((value != null))
-                    {
-                        value.RazredImaPredmets.Add(this);
-                        this._sifra_predmeta = value.sifra_predmeta;
-                    }
-                    else
-                    {
-                        this._sifra_predmeta = default(int);
-                    }
-                    this.SendPropertyChanged("Predmet");
-                }
-            }
-        }
-        
-        [global::System.Data.Linq.Mapping.AssociationAttribute(Name="Razred_RazredImaPredmet", Storage="_Razred", ThisKey="sifra_razreda", OtherKey="sifra_razreda", IsForeignKey=true)]
-        public Razred Razred
-        {
-            get
-            {
-                return this._Razred.Entity;
-            }
-            set
-            {
-                Razred previousValue = this._Razred.Entity;
-                if (((previousValue != value) 
-                            || (this._Razred.HasLoadedOrAssignedValue == false)))
-                {
-                    this.SendPropertyChanging();
-                    if ((previousValue != null))
-                    {
-                        this._Razred.Entity = null;
-                        previousValue.RazredImaPredmets.Remove(this);
-                    }
-                    this._Razred.Entity = value;
-                    if ((value != null))
-                    {
-                        value.RazredImaPredmets.Add(this);
-                        this._sifra_razreda = value.sifra_razreda;
-                    }
-                    else
-                    {
-                        this._sifra_razreda = default(int);
-                    }
-                    this.SendPropertyChanged("Razred");
-                }
-            }
-        }
-        
-        public event PropertyChangingEventHandler PropertyChanging;
-        
-        public event PropertyChangedEventHandler PropertyChanged;
-        
-        protected virtual void SendPropertyChanging()
-        {
-            if ((this.PropertyChanging != null))
-            {
-                this.PropertyChanging(this, emptyChangingEventArgs);
-            }
-        }
-        
-        protected virtual void SendPropertyChanged(String propertyName)
-        {
-            if ((this.PropertyChanged != null))
-            {
-                this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Razred")]
-    public partial class Razred : INotifyPropertyChanging, INotifyPropertyChanged
-    {
-        
-        private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-        
-        private int _sifra_razreda;
-        
-        private string _naziv;
-        
-        private EntitySet<Odeljenje> _Odeljenjes;
-        
-        private EntitySet<RazredImaPredmet> _RazredImaPredmets;
-        
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void Onsifra_razredaChanging(int value);
-    partial void Onsifra_razredaChanged();
-    partial void OnnazivChanging(string value);
-    partial void OnnazivChanged();
-    #endregion
-        
-        public Razred()
-        {
-            this._Odeljenjes = new EntitySet<Odeljenje>(new Action<Odeljenje>(this.attach_Odeljenjes), new Action<Odeljenje>(this.detach_Odeljenjes));
-            this._RazredImaPredmets = new EntitySet<RazredImaPredmet>(new Action<RazredImaPredmet>(this.attach_RazredImaPredmets), new Action<RazredImaPredmet>(this.detach_RazredImaPredmets));
-            OnCreated();
-        }
-        
-        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sifra_razreda", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-        public int sifra_razreda
-        {
-            get
-            {
-                return this._sifra_razreda;
-            }
-            set
-            {
-                if ((this._sifra_razreda != value))
-                {
-                    this.Onsifra_razredaChanging(value);
-                    this.SendPropertyChanging();
-                    this._sifra_razreda = value;
-                    this.SendPropertyChanged("sifra_razreda");
-                    this.Onsifra_razredaChanged();
-                }
-            }
-        }
-        
-        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_naziv", DbType="NVarChar(60)")]
-        public string naziv
-        {
-            get
-            {
-                return this._naziv;
-            }
-            set
-            {
-                if ((this._naziv != value))
-                {
-                    this.OnnazivChanging(value);
-                    this.SendPropertyChanging();
-                    this._naziv = value;
-                    this.SendPropertyChanged("naziv");
-                    this.OnnazivChanged();
-                }
-            }
-        }
-        
-        [global::System.Data.Linq.Mapping.AssociationAttribute(Name="Razred_Odeljenje", Storage="_Odeljenjes", ThisKey="sifra_razreda", OtherKey="sifra_razreda")]
-        public EntitySet<Odeljenje> Odeljenjes
-        {
-            get
-            {
-                return this._Odeljenjes;
-            }
-            set
-            {
-                this._Odeljenjes.Assign(value);
-            }
-        }
-        
-        [global::System.Data.Linq.Mapping.AssociationAttribute(Name="Razred_RazredImaPredmet", Storage="_RazredImaPredmets", ThisKey="sifra_razreda", OtherKey="sifra_razreda")]
-        public EntitySet<RazredImaPredmet> RazredImaPredmets
-        {
-            get
-            {
-                return this._RazredImaPredmets;
-            }
-            set
-            {
-                this._RazredImaPredmets.Assign(value);
-            }
-        }
-        
-        public event PropertyChangingEventHandler PropertyChanging;
-        
-        public event PropertyChangedEventHandler PropertyChanged;
-        
-        protected virtual void SendPropertyChanging()
-        {
-            if ((this.PropertyChanging != null))
-            {
-                this.PropertyChanging(this, emptyChangingEventArgs);
-            }
-        }
-        
-        protected virtual void SendPropertyChanged(String propertyName)
-        {
-            if ((this.PropertyChanged != null))
-            {
-                this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-            }
-        }
-        
-        private void attach_Odeljenjes(Odeljenje entity)
-        {
-            this.SendPropertyChanging();
-            entity.Razred = this;
-        }
-        
-        private void detach_Odeljenjes(Odeljenje entity)
-        {
-            this.SendPropertyChanging();
-            entity.Razred = null;
-        }
-        
-        private void attach_RazredImaPredmets(RazredImaPredmet entity)
-        {
-            this.SendPropertyChanging();
-            entity.Razred = this;
-        }
-        
-        private void detach_RazredImaPredmets(RazredImaPredmet entity)
-        {
-            this.SendPropertyChanging();
-            entity.Razred = null;
-        }
-    }
-    
-    [global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.UcenikImaOcenu")]
-    public partial class UcenikImaOcenu : INotifyPropertyChanging, INotifyPropertyChanged
-    {
-        
-        private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-        
-        private int _sifra_upisa;
-        
-        private int _sifra_ucenika;
-        
-        private int _sifra_predmeta;
-        
-        private System.Nullable<int> _ocena;
-        
-        private System.Nullable<int> _polugodiste;
-        
-        private string _opis;
-        
-        private string _vreme_upisa;
-        
-        private EntityRef<Ucenik> _Ucenik;
-        
-        private EntityRef<Predmet> _Predmet;
-        
+		
+		public Ucenik()
+		{
+			this._UcenikImaOcenus = new EntitySet<UcenikImaOcenu>(new Action<UcenikImaOcenu>(this.attach_UcenikImaOcenus), new Action<UcenikImaOcenu>(this.detach_UcenikImaOcenus));
+			this._Odeljenje = default(EntityRef<Odeljenje>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sifra_ucenika", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int sifra_ucenika
+		{
+			get
+			{
+				return this._sifra_ucenika;
+			}
+			set
+			{
+				if ((this._sifra_ucenika != value))
+				{
+					this.Onsifra_ucenikaChanging(value);
+					this.SendPropertyChanging();
+					this._sifra_ucenika = value;
+					this.SendPropertyChanged("sifra_ucenika");
+					this.Onsifra_ucenikaChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ime", DbType="NVarChar(60)")]
+		public string ime
+		{
+			get
+			{
+				return this._ime;
+			}
+			set
+			{
+				if ((this._ime != value))
+				{
+					this.OnimeChanging(value);
+					this.SendPropertyChanging();
+					this._ime = value;
+					this.SendPropertyChanged("ime");
+					this.OnimeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_prezime", DbType="NVarChar(60)")]
+		public string prezime
+		{
+			get
+			{
+				return this._prezime;
+			}
+			set
+			{
+				if ((this._prezime != value))
+				{
+					this.OnprezimeChanging(value);
+					this.SendPropertyChanging();
+					this._prezime = value;
+					this.SendPropertyChanged("prezime");
+					this.OnprezimeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_korisnicko_ime", DbType="NVarChar(60)")]
+		public string korisnicko_ime
+		{
+			get
+			{
+				return this._korisnicko_ime;
+			}
+			set
+			{
+				if ((this._korisnicko_ime != value))
+				{
+					this.Onkorisnicko_imeChanging(value);
+					this.SendPropertyChanging();
+					this._korisnicko_ime = value;
+					this.SendPropertyChanged("korisnicko_ime");
+					this.Onkorisnicko_imeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sifra", DbType="NVarChar(250)")]
+		public string sifra
+		{
+			get
+			{
+				return this._sifra;
+			}
+			set
+			{
+				if ((this._sifra != value))
+				{
+					this.OnsifraChanging(value);
+					this.SendPropertyChanging();
+					this._sifra = value;
+					this.SendPropertyChanged("sifra");
+					this.OnsifraChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_datum_rodjenja", DbType="NVarChar(60)")]
+		public string datum_rodjenja
+		{
+			get
+			{
+				return this._datum_rodjenja;
+			}
+			set
+			{
+				if ((this._datum_rodjenja != value))
+				{
+					this.Ondatum_rodjenjaChanging(value);
+					this.SendPropertyChanging();
+					this._datum_rodjenja = value;
+					this.SendPropertyChanged("datum_rodjenja");
+					this.Ondatum_rodjenjaChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_mesto_stanovanja", DbType="NVarChar(60)")]
+		public string mesto_stanovanja
+		{
+			get
+			{
+				return this._mesto_stanovanja;
+			}
+			set
+			{
+				if ((this._mesto_stanovanja != value))
+				{
+					this.Onmesto_stanovanjaChanging(value);
+					this.SendPropertyChanging();
+					this._mesto_stanovanja = value;
+					this.SendPropertyChanged("mesto_stanovanja");
+					this.Onmesto_stanovanjaChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_jmbg", DbType="NVarChar(60)")]
+		public string jmbg
+		{
+			get
+			{
+				return this._jmbg;
+			}
+			set
+			{
+				if ((this._jmbg != value))
+				{
+					this.OnjmbgChanging(value);
+					this.SendPropertyChanging();
+					this._jmbg = value;
+					this.SendPropertyChanged("jmbg");
+					this.OnjmbgChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ime_staratelja", DbType="NVarChar(60)")]
+		public string ime_staratelja
+		{
+			get
+			{
+				return this._ime_staratelja;
+			}
+			set
+			{
+				if ((this._ime_staratelja != value))
+				{
+					this.Onime_starateljaChanging(value);
+					this.SendPropertyChanging();
+					this._ime_staratelja = value;
+					this.SendPropertyChanged("ime_staratelja");
+					this.Onime_starateljaChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_prezime_staratelja", DbType="NVarChar(60)")]
+		public string prezime_staratelja
+		{
+			get
+			{
+				return this._prezime_staratelja;
+			}
+			set
+			{
+				if ((this._prezime_staratelja != value))
+				{
+					this.Onprezime_starateljaChanging(value);
+					this.SendPropertyChanging();
+					this._prezime_staratelja = value;
+					this.SendPropertyChanged("prezime_staratelja");
+					this.Onprezime_starateljaChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_kontakt_telefon", DbType="NVarChar(50)")]
+		public string kontakt_telefon
+		{
+			get
+			{
+				return this._kontakt_telefon;
+			}
+			set
+			{
+				if ((this._kontakt_telefon != value))
+				{
+					this.Onkontakt_telefonChanging(value);
+					this.SendPropertyChanging();
+					this._kontakt_telefon = value;
+					this.SendPropertyChanged("kontakt_telefon");
+					this.Onkontakt_telefonChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sifra_odeljenja", DbType="Int NOT NULL")]
+		public int sifra_odeljenja
+		{
+			get
+			{
+				return this._sifra_odeljenja;
+			}
+			set
+			{
+				if ((this._sifra_odeljenja != value))
+				{
+					if (this._Odeljenje.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.Onsifra_odeljenjaChanging(value);
+					this.SendPropertyChanging();
+					this._sifra_odeljenja = value;
+					this.SendPropertyChanged("sifra_odeljenja");
+					this.Onsifra_odeljenjaChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Ucenik_UcenikImaOcenu", Storage="_UcenikImaOcenus", ThisKey="sifra_ucenika", OtherKey="sifra_ucenika")]
+		public EntitySet<UcenikImaOcenu> UcenikImaOcenus
+		{
+			get
+			{
+				return this._UcenikImaOcenus;
+			}
+			set
+			{
+				this._UcenikImaOcenus.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Odeljenje_Ucenik", Storage="_Odeljenje", ThisKey="sifra_odeljenja", OtherKey="sifra_odeljenja", IsForeignKey=true)]
+		public Odeljenje Odeljenje
+		{
+			get
+			{
+				return this._Odeljenje.Entity;
+			}
+			set
+			{
+				Odeljenje previousValue = this._Odeljenje.Entity;
+				if (((previousValue != value) 
+							|| (this._Odeljenje.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Odeljenje.Entity = null;
+						previousValue.Uceniks.Remove(this);
+					}
+					this._Odeljenje.Entity = value;
+					if ((value != null))
+					{
+						value.Uceniks.Add(this);
+						this._sifra_odeljenja = value.sifra_odeljenja;
+					}
+					else
+					{
+						this._sifra_odeljenja = default(int);
+					}
+					this.SendPropertyChanged("Odeljenje");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_UcenikImaOcenus(UcenikImaOcenu entity)
+		{
+			this.SendPropertyChanging();
+			entity.Ucenik = this;
+		}
+		
+		private void detach_UcenikImaOcenus(UcenikImaOcenu entity)
+		{
+			this.SendPropertyChanging();
+			entity.Ucenik = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.UcenikImaOcenu")]
+	public partial class UcenikImaOcenu : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _sifra_upisa;
+		
+		private int _sifra_ucenika;
+		
+		private int _sifra_predmeta;
+		
+		private System.Nullable<int> _ocena;
+		
+		private System.Nullable<int> _polugodiste;
+		
+		private string _opis;
+		
+		private string _vreme_upisa;
+		
+		private EntityRef<Ucenik> _Ucenik;
+		
+		private EntityRef<Predmet> _Predmet;
+		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -1984,249 +1984,249 @@ namespace HCPortal.Models.L2SRepository
     partial void Onvreme_upisaChanging(string value);
     partial void Onvreme_upisaChanged();
     #endregion
-        
-        public UcenikImaOcenu()
-        {
-            this._Ucenik = default(EntityRef<Ucenik>);
-            this._Predmet = default(EntityRef<Predmet>);
-            OnCreated();
-        }
-        
-        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sifra_upisa", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-        public int sifra_upisa
-        {
-            get
-            {
-                return this._sifra_upisa;
-            }
-            set
-            {
-                if ((this._sifra_upisa != value))
-                {
-                    this.Onsifra_upisaChanging(value);
-                    this.SendPropertyChanging();
-                    this._sifra_upisa = value;
-                    this.SendPropertyChanged("sifra_upisa");
-                    this.Onsifra_upisaChanged();
-                }
-            }
-        }
-        
-        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sifra_ucenika", DbType="Int NOT NULL")]
-        public int sifra_ucenika
-        {
-            get
-            {
-                return this._sifra_ucenika;
-            }
-            set
-            {
-                if ((this._sifra_ucenika != value))
-                {
-                    if (this._Ucenik.HasLoadedOrAssignedValue)
-                    {
-                        throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-                    }
-                    this.Onsifra_ucenikaChanging(value);
-                    this.SendPropertyChanging();
-                    this._sifra_ucenika = value;
-                    this.SendPropertyChanged("sifra_ucenika");
-                    this.Onsifra_ucenikaChanged();
-                }
-            }
-        }
-        
-        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sifra_predmeta", DbType="Int NOT NULL")]
-        public int sifra_predmeta
-        {
-            get
-            {
-                return this._sifra_predmeta;
-            }
-            set
-            {
-                if ((this._sifra_predmeta != value))
-                {
-                    if (this._Predmet.HasLoadedOrAssignedValue)
-                    {
-                        throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-                    }
-                    this.Onsifra_predmetaChanging(value);
-                    this.SendPropertyChanging();
-                    this._sifra_predmeta = value;
-                    this.SendPropertyChanged("sifra_predmeta");
-                    this.Onsifra_predmetaChanged();
-                }
-            }
-        }
-        
-        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ocena", DbType="Int")]
-        public System.Nullable<int> ocena
-        {
-            get
-            {
-                return this._ocena;
-            }
-            set
-            {
-                if ((this._ocena != value))
-                {
-                    this.OnocenaChanging(value);
-                    this.SendPropertyChanging();
-                    this._ocena = value;
-                    this.SendPropertyChanged("ocena");
-                    this.OnocenaChanged();
-                }
-            }
-        }
-        
-        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_polugodiste", DbType="Int")]
-        public System.Nullable<int> polugodiste
-        {
-            get
-            {
-                return this._polugodiste;
-            }
-            set
-            {
-                if ((this._polugodiste != value))
-                {
-                    this.OnpolugodisteChanging(value);
-                    this.SendPropertyChanging();
-                    this._polugodiste = value;
-                    this.SendPropertyChanged("polugodiste");
-                    this.OnpolugodisteChanged();
-                }
-            }
-        }
-        
-        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_opis", DbType="NVarChar(60)")]
-        public string opis
-        {
-            get
-            {
-                return this._opis;
-            }
-            set
-            {
-                if ((this._opis != value))
-                {
-                    this.OnopisChanging(value);
-                    this.SendPropertyChanging();
-                    this._opis = value;
-                    this.SendPropertyChanged("opis");
-                    this.OnopisChanged();
-                }
-            }
-        }
-        
-        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vreme_upisa", DbType="NVarChar(60)")]
-        public string vreme_upisa
-        {
-            get
-            {
-                return this._vreme_upisa;
-            }
-            set
-            {
-                if ((this._vreme_upisa != value))
-                {
-                    this.Onvreme_upisaChanging(value);
-                    this.SendPropertyChanging();
-                    this._vreme_upisa = value;
-                    this.SendPropertyChanged("vreme_upisa");
-                    this.Onvreme_upisaChanged();
-                }
-            }
-        }
-        
-        [global::System.Data.Linq.Mapping.AssociationAttribute(Name="Ucenik_UcenikImaOcenu", Storage="_Ucenik", ThisKey="sifra_ucenika", OtherKey="sifra_ucenika", IsForeignKey=true)]
-        public Ucenik Ucenik
-        {
-            get
-            {
-                return this._Ucenik.Entity;
-            }
-            set
-            {
-                Ucenik previousValue = this._Ucenik.Entity;
-                if (((previousValue != value) 
-                            || (this._Ucenik.HasLoadedOrAssignedValue == false)))
-                {
-                    this.SendPropertyChanging();
-                    if ((previousValue != null))
-                    {
-                        this._Ucenik.Entity = null;
-                        previousValue.UcenikImaOcenus.Remove(this);
-                    }
-                    this._Ucenik.Entity = value;
-                    if ((value != null))
-                    {
-                        value.UcenikImaOcenus.Add(this);
-                        this._sifra_ucenika = value.sifra_ucenika;
-                    }
-                    else
-                    {
-                        this._sifra_ucenika = default(int);
-                    }
-                    this.SendPropertyChanged("Ucenik");
-                }
-            }
-        }
-        
-        [global::System.Data.Linq.Mapping.AssociationAttribute(Name="Predmet_UcenikImaOcenu", Storage="_Predmet", ThisKey="sifra_predmeta", OtherKey="sifra_predmeta", IsForeignKey=true)]
-        public Predmet Predmet
-        {
-            get
-            {
-                return this._Predmet.Entity;
-            }
-            set
-            {
-                Predmet previousValue = this._Predmet.Entity;
-                if (((previousValue != value) 
-                            || (this._Predmet.HasLoadedOrAssignedValue == false)))
-                {
-                    this.SendPropertyChanging();
-                    if ((previousValue != null))
-                    {
-                        this._Predmet.Entity = null;
-                        previousValue.UcenikImaOcenus.Remove(this);
-                    }
-                    this._Predmet.Entity = value;
-                    if ((value != null))
-                    {
-                        value.UcenikImaOcenus.Add(this);
-                        this._sifra_predmeta = value.sifra_predmeta;
-                    }
-                    else
-                    {
-                        this._sifra_predmeta = default(int);
-                    }
-                    this.SendPropertyChanged("Predmet");
-                }
-            }
-        }
-        
-        public event PropertyChangingEventHandler PropertyChanging;
-        
-        public event PropertyChangedEventHandler PropertyChanged;
-        
-        protected virtual void SendPropertyChanging()
-        {
-            if ((this.PropertyChanging != null))
-            {
-                this.PropertyChanging(this, emptyChangingEventArgs);
-            }
-        }
-        
-        protected virtual void SendPropertyChanged(String propertyName)
-        {
-            if ((this.PropertyChanged != null))
-            {
-                this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
+		
+		public UcenikImaOcenu()
+		{
+			this._Ucenik = default(EntityRef<Ucenik>);
+			this._Predmet = default(EntityRef<Predmet>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sifra_upisa", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int sifra_upisa
+		{
+			get
+			{
+				return this._sifra_upisa;
+			}
+			set
+			{
+				if ((this._sifra_upisa != value))
+				{
+					this.Onsifra_upisaChanging(value);
+					this.SendPropertyChanging();
+					this._sifra_upisa = value;
+					this.SendPropertyChanged("sifra_upisa");
+					this.Onsifra_upisaChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sifra_ucenika", DbType="Int NOT NULL")]
+		public int sifra_ucenika
+		{
+			get
+			{
+				return this._sifra_ucenika;
+			}
+			set
+			{
+				if ((this._sifra_ucenika != value))
+				{
+					if (this._Ucenik.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.Onsifra_ucenikaChanging(value);
+					this.SendPropertyChanging();
+					this._sifra_ucenika = value;
+					this.SendPropertyChanged("sifra_ucenika");
+					this.Onsifra_ucenikaChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sifra_predmeta", DbType="Int NOT NULL")]
+		public int sifra_predmeta
+		{
+			get
+			{
+				return this._sifra_predmeta;
+			}
+			set
+			{
+				if ((this._sifra_predmeta != value))
+				{
+					if (this._Predmet.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.Onsifra_predmetaChanging(value);
+					this.SendPropertyChanging();
+					this._sifra_predmeta = value;
+					this.SendPropertyChanged("sifra_predmeta");
+					this.Onsifra_predmetaChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ocena", DbType="Int")]
+		public System.Nullable<int> ocena
+		{
+			get
+			{
+				return this._ocena;
+			}
+			set
+			{
+				if ((this._ocena != value))
+				{
+					this.OnocenaChanging(value);
+					this.SendPropertyChanging();
+					this._ocena = value;
+					this.SendPropertyChanged("ocena");
+					this.OnocenaChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_polugodiste", DbType="Int")]
+		public System.Nullable<int> polugodiste
+		{
+			get
+			{
+				return this._polugodiste;
+			}
+			set
+			{
+				if ((this._polugodiste != value))
+				{
+					this.OnpolugodisteChanging(value);
+					this.SendPropertyChanging();
+					this._polugodiste = value;
+					this.SendPropertyChanged("polugodiste");
+					this.OnpolugodisteChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_opis", DbType="NVarChar(60)")]
+		public string opis
+		{
+			get
+			{
+				return this._opis;
+			}
+			set
+			{
+				if ((this._opis != value))
+				{
+					this.OnopisChanging(value);
+					this.SendPropertyChanging();
+					this._opis = value;
+					this.SendPropertyChanged("opis");
+					this.OnopisChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vreme_upisa", DbType="NVarChar(60)")]
+		public string vreme_upisa
+		{
+			get
+			{
+				return this._vreme_upisa;
+			}
+			set
+			{
+				if ((this._vreme_upisa != value))
+				{
+					this.Onvreme_upisaChanging(value);
+					this.SendPropertyChanging();
+					this._vreme_upisa = value;
+					this.SendPropertyChanged("vreme_upisa");
+					this.Onvreme_upisaChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Ucenik_UcenikImaOcenu", Storage="_Ucenik", ThisKey="sifra_ucenika", OtherKey="sifra_ucenika", IsForeignKey=true)]
+		public Ucenik Ucenik
+		{
+			get
+			{
+				return this._Ucenik.Entity;
+			}
+			set
+			{
+				Ucenik previousValue = this._Ucenik.Entity;
+				if (((previousValue != value) 
+							|| (this._Ucenik.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Ucenik.Entity = null;
+						previousValue.UcenikImaOcenus.Remove(this);
+					}
+					this._Ucenik.Entity = value;
+					if ((value != null))
+					{
+						value.UcenikImaOcenus.Add(this);
+						this._sifra_ucenika = value.sifra_ucenika;
+					}
+					else
+					{
+						this._sifra_ucenika = default(int);
+					}
+					this.SendPropertyChanged("Ucenik");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Predmet_UcenikImaOcenu", Storage="_Predmet", ThisKey="sifra_predmeta", OtherKey="sifra_predmeta", IsForeignKey=true)]
+		public Predmet Predmet
+		{
+			get
+			{
+				return this._Predmet.Entity;
+			}
+			set
+			{
+				Predmet previousValue = this._Predmet.Entity;
+				if (((previousValue != value) 
+							|| (this._Predmet.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Predmet.Entity = null;
+						previousValue.UcenikImaOcenus.Remove(this);
+					}
+					this._Predmet.Entity = value;
+					if ((value != null))
+					{
+						value.UcenikImaOcenus.Add(this);
+						this._sifra_predmeta = value.sifra_predmeta;
+					}
+					else
+					{
+						this._sifra_predmeta = default(int);
+					}
+					this.SendPropertyChanged("Predmet");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
 }
 #pragma warning restore 1591
