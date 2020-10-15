@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="hcportal" Class="HcPortalDbDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="WebSettings" ConnectionString="Data Source=DESKTOP-B2HNG77;Initial Catalog=hcportal;Integrated Security=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="hcportalConnectionString" Provider="System.Data.SqlClient" />
+  <Connection Mode="WebSettings" ConnectionString="Data Source=DESKTOP-GKI5R9J;Initial Catalog=hcportal;Integrated Security=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="hcportalConnectionString1" Provider="System.Data.SqlClient" />
   <Table Name="dbo.Moderator" Member="Moderators">
     <Type Name="Moderator">
       <Column Name="sifra_moderatora" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -52,6 +52,23 @@
       <Association Name="Odeljenje_ProfesorPredajePredmetOdeljenju" Member="Odeljenje" ThisKey="sifra_odeljenja" OtherKey="sifra_odeljenja" Type="Odeljenje" IsForeignKey="true" />
     </Type>
   </Table>
+  <Table Name="dbo.Razred" Member="Razreds">
+    <Type Name="Razred">
+      <Column Name="sifra_razreda" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="naziv" Type="System.String" DbType="NVarChar(60)" CanBeNull="true" />
+      <Association Name="Razred_Odeljenje" Member="Odeljenjes" ThisKey="sifra_razreda" OtherKey="sifra_razreda" Type="Odeljenje" />
+      <Association Name="Razred_RazredImaPredmet" Member="RazredImaPredmets" ThisKey="sifra_razreda" OtherKey="sifra_razreda" Type="RazredImaPredmet" />
+    </Type>
+  </Table>
+  <Table Name="dbo.RazredImaPredmet" Member="RazredImaPredmets">
+    <Type Name="RazredImaPredmet">
+      <Column Name="sifra_dodele" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="sifra_predmeta" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="sifra_razreda" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Predmet_RazredImaPredmet" Member="Predmet" ThisKey="sifra_predmeta" OtherKey="sifra_predmeta" Type="Predmet" IsForeignKey="true" />
+      <Association Name="Razred_RazredImaPredmet" Member="Razred" ThisKey="sifra_razreda" OtherKey="sifra_razreda" Type="Razred" IsForeignKey="true" />
+    </Type>
+  </Table>
   <Table Name="dbo.Ucenik" Member="Uceniks">
     <Type Name="Ucenik">
       <Column Name="sifra_ucenika" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -68,23 +85,6 @@
       <Column Name="sifra_odeljenja" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Association Name="Ucenik_UcenikImaOcenu" Member="UcenikImaOcenus" ThisKey="sifra_ucenika" OtherKey="sifra_ucenika" Type="UcenikImaOcenu" />
       <Association Name="Odeljenje_Ucenik" Member="Odeljenje" ThisKey="sifra_odeljenja" OtherKey="sifra_odeljenja" Type="Odeljenje" IsForeignKey="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.RazredImaPredmet" Member="RazredImaPredmets">
-    <Type Name="RazredImaPredmet">
-      <Column Name="sifra_dodele" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="sifra_predmeta" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="sifra_razreda" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Association Name="Predmet_RazredImaPredmet" Member="Predmet" ThisKey="sifra_predmeta" OtherKey="sifra_predmeta" Type="Predmet" IsForeignKey="true" />
-      <Association Name="Razred_RazredImaPredmet" Member="Razred" ThisKey="sifra_razreda" OtherKey="sifra_razreda" Type="Razred" IsForeignKey="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.Razred" Member="Razreds">
-    <Type Name="Razred">
-      <Column Name="sifra_razreda" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="naziv" Type="System.String" DbType="NVarChar(60)" CanBeNull="true" />
-      <Association Name="Razred_Odeljenje" Member="Odeljenjes" ThisKey="sifra_razreda" OtherKey="sifra_razreda" Type="Odeljenje" />
-      <Association Name="Razred_RazredImaPredmet" Member="RazredImaPredmets" ThisKey="sifra_razreda" OtherKey="sifra_razreda" Type="RazredImaPredmet" />
     </Type>
   </Table>
   <Table Name="dbo.UcenikImaOcenu" Member="UcenikImaOcenus">
